@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@mobile/containers/*": ["./src/containers/*"],
+      "@mobile/config/*": ["./src/config/*"],
+      "@mobile/utils/*": ["./src/utils/*"],
+    }
+  },
+  "extends": "@tsconfig/react-native/tsconfig.json"
+}

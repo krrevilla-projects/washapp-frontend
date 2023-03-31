@@ -1,0 +1,14 @@
+appId: org.reactjs.native.example.Laundry
+---
+- launchApp
+- tapOn:
+    id: 'LoginEmail'
+- inputText: 'karl.revilla@gmail.com'
+- tapOn:
+    id: 'LoginPassword'
+- inputText: 'Test1234'
+- tapOn:
+    id: 'LoginButton'
+- assertVisible:
+    id: Dashboard
+    index: 1

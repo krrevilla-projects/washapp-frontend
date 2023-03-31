@@ -1,0 +1,20 @@
+{
+  "name": "laundry-service-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:krrevilla/laundry-service-app.git",
+  "author": "Karl Revilla <karlangelorevilla@gmail.com>",
+  "license": "MIT",
+  "private": "true",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "mobile:start": "yarn workspace mobile start",
+    "mobile:ios": "yarn workspace mobile ios",
+    "mobile:android": "yarn workspace mobile android",
+    "web:dev": "yarn workspace web dev",
+    "shared:build": "yarn workspace @laundry-app/shared build",
+    "shared:openapi-generate": "yarn workspace @laundry-app/shared openapi-generate"
+  }
+}
