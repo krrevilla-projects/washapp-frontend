@@ -11,6 +11,9 @@ export const useDevtool = () => {
   const [showStorybook, setStorybook] = useState(false);
 
   useEffect(() => {
+    addMenuItem('Close Storybook', () => {
+      setStorybook(false);
+    });
     addMenuItem('Open Storybook', () => {
       setStorybook(true);
     });

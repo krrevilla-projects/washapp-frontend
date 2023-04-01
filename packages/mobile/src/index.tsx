@@ -11,7 +11,7 @@ import {ThemeProvider} from '@rneui/themed';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {StyleSheet} from 'react-native';
 import Drawer from './containers/Drawer';
-import StorybookUIRoot from '../.storybook/index';
+import StorybookUIRoot from '../.storybook';
 import {useDevtool} from './hooks/devtool';
 
 if (__DEV__) {

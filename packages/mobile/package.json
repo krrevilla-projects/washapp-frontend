@@ -9,7 +9,9 @@
     "start": "react-native start",
     "test": "jest",
     "storybook-generate": "sb-rn-get-stories",
-    "storybook-watch": "sb-rn-watcher"
+    "storybook-watch": "sb-rn-watcher",
+    "start-server": "npx cross-env NODE_OPTIONS=--openssl-legacy-provider react-native-storybook-server yarn -h 0.0.0.0 -p 7007",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@laundry-app/shared": "1.0.0",
@@ -41,9 +43,11 @@
     "@react-native-community/slider": "^4.4.2",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-controls": "^6.5.16",
-    "@storybook/addon-ondevice-actions": "^6.5.1",
-    "@storybook/addon-ondevice-controls": "^6.5.1",
-    "@storybook/react-native": "^6.5.1",
+    "@storybook/addon-essentials": "^6.5.16",
+    "@storybook/addon-ondevice-actions": "^6.5.2",
+    "@storybook/addon-ondevice-controls": "^6.5.2",
+    "@storybook/react-native": "^6.5.2",
+    "@storybook/react-native-server": "^6.5.2",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/jest-native": "^5.4.2",
     "@testing-library/react-native": "^12.0.0-rc.0",
@@ -54,8 +58,10 @@
     "babel-jest": "^29.2.1",
     "babel-loader": "^8.3.0",
     "babel-plugin-module-resolver": "^5.0.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.19.0",
     "jest": "^29.2.1",
+    "loki": "^0.31.1",
     "metro-react-native-babel-preset": "0.73.7",
     "prettier": "^2.4.1",
     "react-dom": "18.2.0",
@@ -78,5 +84,12 @@
     "transformIgnorePatterns": [
       "node_modules/(?!(jest-)?@react-native|react-native|@rneui|@react-navigation/*)"
     ]
+  },
+  "loki": {
+    "configurations": {
+      "ios.iphone7": {
+        "target": "ios.simulator"
+      }
+    }
   }
 }
