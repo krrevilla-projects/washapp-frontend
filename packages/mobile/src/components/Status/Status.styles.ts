@@ -1,9 +1,10 @@
 import {LaundryJobStatus} from '@laundry-app/shared/openapi';
 import {colors, hexAlpha} from '@laundry-app/shared/style';
-import {makeStyles, ThemeMode} from '@rneui/themed';
+import {makeStyles} from '@laundry-app/shared/utils/makeStyle';
+import {ColorMode} from 'native-base';
 
-const getBackgroundColor = (status: LaundryJobStatus, themeMode: ThemeMode) => {
-  if (themeMode === 'light') {
+const getBackgroundColor = (status: LaundryJobStatus, colorMode: ColorMode) => {
+  if (colorMode === 'light') {
     switch (status) {
       case LaundryJobStatus.Cancelled:
         return `${colors.red}${hexAlpha[50]}`;
@@ -18,8 +19,8 @@ const getBackgroundColor = (status: LaundryJobStatus, themeMode: ThemeMode) => {
   }
 };
 
-const getTextColor = (status: LaundryJobStatus, themeMode: ThemeMode) => {
-  if (themeMode === 'light') {
+const getTextColor = (status: LaundryJobStatus, colorMode: ColorMode) => {
+  if (colorMode === 'light') {
     return colors.white;
   } else {
     switch (status) {
@@ -34,14 +35,16 @@ const getTextColor = (status: LaundryJobStatus, themeMode: ThemeMode) => {
   }
 };
 
-export const useStatusStyle = makeStyles((theme, status: LaundryJobStatus) => ({
-  containerStyle: {
-    height: 24,
-    paddingHorizontal: 4,
-    backgroundColor: getBackgroundColor(status, theme.mode),
-  },
-  textStyle: {
-    color: getTextColor(status, theme.mode),
-    textTransform: 'capitalize',
-  },
-}));
+export const useStatusStyle = makeStyles(
+  (colorMode, status: LaundryJobStatus) => ({
+    containerStyle: {
+      height: 24,
+      paddingHorizontal: 4,
+      backgroundColor: getBackgroundColor(status, colorMode),
+    },
+    textStyle: {
+      color: getTextColor(status, colorMode),
+      textTransform: 'capitalize',
+    },
+  }),
+);

@@ -1,12 +1,12 @@
 import {colors, spacing, typography} from '@laundry-app/shared';
-import {makeStyles} from '@rneui/themed';
+import {makeStyles} from '@laundry-app/shared/utils/makeStyle';
 
-export const useDrawerContentStyles = makeStyles(theme => ({
+export const useDrawerContentStyles = makeStyles(colorMode => ({
   container: {
     flex: 1,
     padding: spacing.Light,
     justifyContent: 'center',
-    backgroundColor: theme.mode === 'light' ? colors.white : colors.dark,
+    backgroundColor: colorMode === 'light' ? colors.white : colors.dark,
   },
   section: {
     marginVertical: spacing.Thin,
@@ -18,7 +18,7 @@ export const useDrawerContentStyles = makeStyles(theme => ({
   },
   title: {
     ...typography.header5,
-    color: theme.mode === 'light' ? colors.dark : colors.white,
+    color: colorMode === 'light' ? colors.dark : colors.white,
   },
   buttonContainerStyle: {
     marginTop: spacing.Thin,

@@ -1,7 +1,6 @@
 import React from 'react';
-import {Badge} from '@rneui/themed';
+import {Badge, Text} from 'native-base';
 import {LaundryJobStatus} from '@laundry-app/shared/openapi';
-
 import {useStatusStyle} from './Status.styles';
 
 interface StatusProps {
@@ -9,14 +8,11 @@ interface StatusProps {
 }
 
 const Status: React.FC<StatusProps> = ({status}) => {
-  const style = useStatusStyle(status);
-
+  const {containerStyle, textStyle} = useStatusStyle(status);
   return (
-    <Badge
-      value={status}
-      badgeStyle={style.containerStyle}
-      textStyle={style.textStyle}
-    />
+    <Badge style={containerStyle}>
+      <Text style={textStyle}>{status}</Text>
+    </Badge>
   );
 };
 

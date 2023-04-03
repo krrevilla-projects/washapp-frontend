@@ -1,5 +1,6 @@
 import { NavigationContainer, LinkingOptions } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { NativeBaseProvider } from "native-base";
 
 import HomeContainer from "./containers/Home";
 import AboutContainer from "./containers/About";
@@ -18,12 +19,14 @@ const linking: LinkingOptions<ReactNavigation.RootParamList> = {
 
 function App() {
   return (
-    <NavigationContainer linking={linking}>
-      <Stack.Navigator>
-        <Stack.Screen component={AboutContainer} name="About" />
-        <Stack.Screen component={HomeContainer} name="Home" />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <NativeBaseProvider>
+      <NavigationContainer linking={linking}>
+        <Stack.Navigator>
+          <Stack.Screen component={AboutContainer} name="About" />
+          <Stack.Screen component={HomeContainer} name="Home" />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </NativeBaseProvider>
   );
 }
 

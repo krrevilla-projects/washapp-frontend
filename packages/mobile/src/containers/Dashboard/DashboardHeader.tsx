@@ -4,7 +4,8 @@ import {
   useLaundryJobCreate,
 } from '@laundry-app/shared';
 import {NativeStackHeaderProps} from '@react-navigation/native-stack';
-import {Text, Icon} from '@rneui/themed';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {Text} from 'native-base';
 import React from 'react';
 import {ActivityIndicator, TouchableOpacity, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -42,8 +43,7 @@ const DashboardHeader = ({}: NativeStackHeaderProps) => {
             <Icon
               size={20}
               name="basket-plus-outline"
-              type="material-community"
-              iconStyle={styles.basketIcon}
+              style={styles.basketIcon}
             />
           )}
         </TouchableOpacity>

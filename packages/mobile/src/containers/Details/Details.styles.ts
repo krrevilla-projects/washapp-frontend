@@ -1,20 +1,19 @@
 import {colors, spacing, typography} from '@laundry-app/shared/style';
-import {makeStyles} from '@rneui/themed';
-import {StyleSheet} from 'react-native';
+import {makeStyles} from '@laundry-app/shared/utils/makeStyle';
 
-export const useDetailStyles = makeStyles(theme => ({
+export const useDetailStyles = makeStyles(colorMode => ({
   rootContainer: {
     flex: 1,
     padding: 20,
-    backgroundColor: theme.mode === 'light' ? colors.white : colors.dark,
+    backgroundColor: colorMode === 'light' ? colors.white : colors.dark,
   },
   totalValue: {
     ...typography.header2,
-    color: theme.mode === 'light' ? colors.dark : colors.white,
+    color: colorMode === 'light' ? colors.dark : colors.white,
   },
   totalLabel: {
     ...typography.bodyMedium,
-    color: theme.mode === 'light' ? colors.dark_2 : colors.white,
+    color: colorMode === 'light' ? colors.dark_2 : colors.white,
     marginTop: spacing.Light,
   },
   dateContainer: {
@@ -29,7 +28,7 @@ export const useDetailStyles = makeStyles(theme => ({
   },
   itemsLabel: {
     ...typography.header4,
-    color: theme.mode === 'light' ? colors.dark : colors.white,
+    color: colorMode === 'light' ? colors.dark : colors.white,
   },
   dataTable: {
     marginTop: spacing.Light,
@@ -64,9 +63,9 @@ export const useDetailStyles = makeStyles(theme => ({
   },
 }));
 
-export const useDetailHeaderStyles = makeStyles(theme => ({
+export const useDetailHeaderStyles = makeStyles(colorMode => ({
   container: {
-    backgroundColor: theme.mode === 'light' ? colors.white : colors.dark,
+    backgroundColor: colorMode === 'light' ? colors.white : colors.dark,
     paddingTop: spacing.Thin,
     paddingBottom: spacing.Thin,
     shadowColor: colors.dark,
@@ -86,11 +85,9 @@ export const useDetailHeaderStyles = makeStyles(theme => ({
   headerLabel: {
     ...typography.header4,
     paddingHorizontal: spacing.Light,
-    color: theme.mode === 'light' ? colors.dark : colors.white,
+    color: colorMode === 'light' ? colors.dark : colors.white,
   },
   backIcon: {
-    color: theme.mode === 'light' ? colors.dark : colors.white,
+    color: colorMode === 'light' ? colors.dark : colors.white,
   },
 }));
-
-export const headerstyles = StyleSheet.create({});

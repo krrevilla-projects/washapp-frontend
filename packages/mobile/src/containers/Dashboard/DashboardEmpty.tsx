@@ -1,5 +1,5 @@
-import {Text} from '@rneui/themed';
 import React from 'react';
+import {Text} from 'native-base';
 import {View} from 'react-native';
 import {emptyStyles} from './Dashboard.styles';
 

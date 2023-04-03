@@ -4,7 +4,7 @@ import {
 } from '@laundry-app/shared/openapi';
 import {calculateTotalValue} from '@laundry-app/shared/utils/laundryJob';
 import React from 'react';
-import {Divider, Text} from '@rneui/themed';
+import {Divider, Text} from 'native-base';
 import {TouchableOpacity, View} from 'react-native';
 
 import {useLaundryCardStyle} from './LaundryCard.styles';

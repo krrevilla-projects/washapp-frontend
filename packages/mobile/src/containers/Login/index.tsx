@@ -1,7 +1,7 @@
 import React from 'react';
 import {Pressable, View} from 'react-native';
-import {Button, Text, Input} from '@rneui/themed';
 import {useForm, Controller} from 'react-hook-form';
+import {Button, Text, Input} from 'native-base';
 
 import {
   loginSchemaResolver,
@@ -54,19 +54,12 @@ const LoginContainer: React.FC<Props> = ({navigation}) => {
       <View style={styles.input}>
         <Controller
           control={control}
-          render={({formState: {errors}, field: {onChange, onBlur, value}}) => (
+          render={({field: {onChange, onBlur, value}}) => (
             <Input
               {...generateTestId('LoginEmail')}
-              label="Email"
               onBlur={onBlur}
               value={value}
               onChangeText={onChange}
-              errorMessage={errors?.email?.message ?? ''}
-              errorProps={
-                errors?.password?.message
-                  ? generateTestId('LoginEmailError')
-                  : undefined
-              }
             />
           )}
           name="email"
@@ -75,20 +68,13 @@ const LoginContainer: React.FC<Props> = ({navigation}) => {
       <View style={styles.input}>
         <Controller
           control={control}
-          render={({formState: {errors}, field: {onChange, onBlur, value}}) => (
+          render={({field: {onChange, onBlur, value}}) => (
             <Input
               {...generateTestId('LoginPassword')}
               secureTextEntry={true}
-              label="Password"
               onBlur={onBlur}
               value={value}
               onChangeText={onChange}
-              errorMessage={errors?.password?.message ?? ''}
-              errorProps={
-                errors?.password?.message
-                  ? generateTestId('LoginPasswordError')
-                  : undefined
-              }
             />
           )}
           name="password"
@@ -96,7 +82,7 @@ const LoginContainer: React.FC<Props> = ({navigation}) => {
       </View>
       <Button
         {...generateTestId('LoginButton')}
-        loading={isLoading || isFetching}
+        isLoading={isLoading || isFetching}
         disabled={isLoading || isFetching}
         onPress={handleSubmit(onSubmit)}>
         Login

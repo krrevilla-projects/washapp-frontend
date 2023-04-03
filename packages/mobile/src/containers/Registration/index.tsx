@@ -1,6 +1,6 @@
 import React from 'react';
 import {ScrollView, View} from 'react-native';
-import {Button, Text, Input} from '@rneui/themed';
+import {Button, Text, Input} from 'native-base';
 import {useForm, Controller} from 'react-hook-form';
 
 import {
@@ -55,17 +55,12 @@ const RegistrationContainer: React.FC<Props> = () => {
         <View style={styles.input}>
           <Controller
             control={control}
-            render={({
-              formState: {errors},
-              field: {onChange, onBlur, value},
-            }) => (
+            render={({field: {onChange, onBlur, value}}) => (
               <Input
                 {...generateTestId('LoginFirstName')}
-                label="First Name"
                 onBlur={onBlur}
                 value={value}
                 onChangeText={onChange}
-                errorMessage={errors?.firstName?.message ?? ''}
               />
             )}
             name="firstName"
@@ -74,17 +69,12 @@ const RegistrationContainer: React.FC<Props> = () => {
         <View style={styles.input}>
           <Controller
             control={control}
-            render={({
-              formState: {errors},
-              field: {onChange, onBlur, value},
-            }) => (
+            render={({field: {onChange, onBlur, value}}) => (
               <Input
                 {...generateTestId('LoginLastName')}
-                label="Last Name"
                 onBlur={onBlur}
                 value={value}
                 onChangeText={onChange}
-                errorMessage={errors?.lastName?.message ?? ''}
               />
             )}
             name="lastName"
@@ -93,17 +83,12 @@ const RegistrationContainer: React.FC<Props> = () => {
         <View style={styles.input}>
           <Controller
             control={control}
-            render={({
-              formState: {errors},
-              field: {onChange, onBlur, value},
-            }) => (
+            render={({field: {onChange, onBlur, value}}) => (
               <Input
                 {...generateTestId('LoginEmail')}
-                label="Email"
                 onBlur={onBlur}
                 value={value}
                 onChangeText={onChange}
-                errorMessage={errors?.email?.message ?? ''}
               />
             )}
             name="email"
@@ -112,17 +97,12 @@ const RegistrationContainer: React.FC<Props> = () => {
         <View style={styles.input}>
           <Controller
             control={control}
-            render={({
-              formState: {errors},
-              field: {onChange, onBlur, value},
-            }) => (
+            render={({field: {onChange, onBlur, value}}) => (
               <Input
                 {...generateTestId('LoginContact')}
-                label="Contact"
                 onBlur={onBlur}
                 value={value}
                 onChangeText={onChange}
-                errorMessage={errors?.contact?.message ?? ''}
               />
             )}
             name="contact"
@@ -131,18 +111,13 @@ const RegistrationContainer: React.FC<Props> = () => {
         <View style={styles.input}>
           <Controller
             control={control}
-            render={({
-              formState: {errors},
-              field: {onChange, onBlur, value},
-            }) => (
+            render={({field: {onChange, onBlur, value}}) => (
               <Input
                 {...generateTestId('LoginPassword')}
                 secureTextEntry={true}
-                label="Password"
                 onBlur={onBlur}
                 value={value}
                 onChangeText={onChange}
-                errorMessage={errors?.password?.message ?? ''}
               />
             )}
             name="password"
@@ -151,18 +126,13 @@ const RegistrationContainer: React.FC<Props> = () => {
         <View style={styles.input}>
           <Controller
             control={control}
-            render={({
-              formState: {errors},
-              field: {onChange, onBlur, value},
-            }) => (
+            render={({field: {onChange, onBlur, value}}) => (
               <Input
                 {...generateTestId('LoginPassword')}
                 secureTextEntry={true}
-                label="Confirm Password"
                 onBlur={onBlur}
                 value={value}
                 onChangeText={onChange}
-                errorMessage={errors?.confirmPassword?.message ?? ''}
               />
             )}
             name="confirmPassword"
@@ -170,7 +140,7 @@ const RegistrationContainer: React.FC<Props> = () => {
         </View>
         <Button
           {...generateTestId('LoginButton')}
-          loading={isFetching || isLoading}
+          isLoading={isFetching || isLoading}
           disabled={isFetching || isLoading}
           onPress={handleSubmit(onSubmit)}>
           Register

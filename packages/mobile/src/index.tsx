@@ -1,18 +1,18 @@
 import 'react-native-url-polyfill/auto';
 import {NavigationContainer} from '@react-navigation/native';
 import {QueryClientContainer, useUserStore} from '@laundry-app/shared';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {initializeMMKVFlipper} from 'react-native-mmkv-flipper-plugin';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {AuthedNavigation, UnauthedNavigation} from './containers/Navigation';
 import {genericStorage, StorageKeys} from './utils/localStorage';
-import theme from './styles/theme';
-import {ThemeProvider} from '@rneui/themed';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {StyleSheet} from 'react-native';
 import Drawer from './containers/Drawer';
 import StorybookUIRoot from '../.storybook';
 import {useDevtool} from './hooks/devtool';
+import {NativeBaseProvider} from 'native-base';
+import theme from '@laundry-app/shared/style/theme';
 
 if (__DEV__) {
   initializeMMKVFlipper({default: genericStorage});
@@ -38,15 +38,15 @@ const LaundryApp: React.FC = () => {
 
   if (showStorybook) {
     return (
-      <ThemeProvider theme={theme}>
+      <NativeBaseProvider theme={theme}>
         <StorybookUIRoot />
-      </ThemeProvider>
+      </NativeBaseProvider>
     );
   }
 
   return (
     <QueryClientContainer>
-      <ThemeProvider theme={theme}>
+      <NativeBaseProvider theme={theme}>
         <GestureHandlerRootView style={styles.gestureHandler}>
           <SafeAreaProvider>
             <Drawer>
@@ -56,7 +56,7 @@ const LaundryApp: React.FC = () => {
             </Drawer>
           </SafeAreaProvider>
         </GestureHandlerRootView>
-      </ThemeProvider>
+      </NativeBaseProvider>
     </QueryClientContainer>
   );
 };

@@ -4,7 +4,7 @@ import {
   useDrawer,
   useUserStore,
 } from '@laundry-app/shared';
-import {Button, Divider, Switch, Text, useThemeMode} from '@rneui/themed';
+import {Divider, Button, Text, useColorMode, Switch} from 'native-base';
 import React from 'react';
 import {StatusBar, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -20,10 +20,10 @@ const mapDrawerStore = (state: DrawerState) => {
 };
 
 const DrawerContent = () => {
+  const {colorMode, toggleColorMode} = useColorMode();
   const styles = useDrawerContentStyles();
   const isLoggedOutSuccessful = useUserStore(mapUserStore);
   const onClose = useDrawer(mapDrawerStore);
-  const {mode, setMode} = useThemeMode();
 
   const onLogout = () => {
     genericStorage.delete(StorageKeys.accessToken);
@@ -32,25 +32,23 @@ const DrawerContent = () => {
   };
 
   const onSwitchTheme = () => {
-    mode === 'light' ? setMode('dark') : setMode('light');
+    toggleColorMode();
   };
 
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar
-        barStyle={mode === 'light' ? 'dark-content' : 'light-content'}
+        barStyle={colorMode === 'light' ? 'dark-content' : 'light-content'}
       />
       <View style={styles.section}>
         <View style={styles.themeSection}>
           <Text style={styles.title}>Dark Mode</Text>
-          <Switch value={mode === 'dark'} onValueChange={onSwitchTheme} />
+          <Switch value={colorMode === 'dark'} onValueChange={onSwitchTheme} />
         </View>
       </View>
-      <Divider width={0.5} />
+      <Divider thickness={0.5} />
       <View style={styles.section}>
-        <Button onPress={onLogout} buttonStyle={styles.buttonStyle}>
-          Logout
-        </Button>
+        <Button onPress={onLogout}>Logout</Button>
       </View>
     </SafeAreaView>
   );

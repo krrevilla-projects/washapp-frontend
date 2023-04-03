@@ -1,7 +1,7 @@
-import {Icon} from '@rneui/themed';
 import React from 'react';
 import {View} from 'react-native';
 import {LaundryJobStatus} from '@laundry-app/shared/openapi';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import {useLaundryCardIconStyle} from './LaundryCard.styles';
 
@@ -29,7 +29,7 @@ const LaundryCardIcon: React.FC<LaundryCardIconProps> = props => {
 
   return (
     <View style={styles.iconContainer}>
-      <Icon name={iconName} iconStyle={styles.icon} />
+      <Icon name={iconName} style={styles.icon} />
     </View>
   );
 };

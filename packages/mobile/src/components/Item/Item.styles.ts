@@ -1,6 +1,6 @@
 import {spacing, colors, typography} from '@laundry-app/shared/style';
 import {borderRadius} from '@laundry-app/shared/style/numbers';
-import {makeStyles} from '@rneui/themed';
+import {makeStyles} from '@laundry-app/shared/utils/makeStyle';
 
 export const useItemStyle = makeStyles(() => ({
   listItem: {

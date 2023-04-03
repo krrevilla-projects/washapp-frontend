@@ -4,13 +4,13 @@ import {
   spacing,
   typography,
 } from '@laundry-app/shared/style';
-import {makeStyles} from '@rneui/themed';
+import {makeStyles} from '@laundry-app/shared/utils/makeStyle';
 import {StyleSheet} from 'react-native';
 
-export const useDashboardStyle = makeStyles(theme => ({
+export const useDashboardStyle = makeStyles(colorMode => ({
   rootContainer: {
     flex: 1,
-    backgroundColor: theme.mode === 'light' ? colors.white : colors.dark,
+    backgroundColor: colorMode === 'light' ? colors.white : colors.dark,
   },
   historyLabel: {
     ...typography.displayTitle,
@@ -22,9 +22,9 @@ export const useDashboardStyle = makeStyles(theme => ({
   },
 }));
 
-export const useDashboardHeaderStyle = makeStyles(theme => ({
+export const useDashboardHeaderStyle = makeStyles(colorMode => ({
   safeArea: {
-    backgroundColor: theme.mode === 'light' ? colors.white : colors.dark,
+    backgroundColor: colorMode === 'light' ? colors.white : colors.dark,
     paddingTop: spacing.Thin,
     paddingBottom: spacing.Thin,
     shadowColor: colors.dark,
@@ -48,17 +48,17 @@ export const useDashboardHeaderStyle = makeStyles(theme => ({
   headerLabel: {
     ...typography.header4,
     fontFamily: fontFamily.body,
-    color: theme.mode === 'light' ? colors.dark : colors.white,
+    color: colorMode === 'light' ? colors.dark : colors.white,
   },
   basketIconContainer: {
     marginRight: spacing.Light,
   },
   basketIcon: {
-    color: theme.mode === 'light' ? colors.dark : colors.white,
+    color: colorMode === 'light' ? colors.dark : colors.white,
   },
   name: {
     ...typography.header4,
-    color: theme.mode === 'light' ? colors.dark : colors.white,
+    color: colorMode === 'light' ? colors.dark : colors.white,
   },
 }));
 

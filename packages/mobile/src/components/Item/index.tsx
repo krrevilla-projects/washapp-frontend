@@ -1,5 +1,6 @@
 import {colors} from '@laundry-app/shared/style';
-import {Icon, Text} from '@rneui/themed';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import {Text} from 'native-base';
 import React from 'react';
 import {View} from 'react-native';
 
