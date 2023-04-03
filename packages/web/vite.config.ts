@@ -6,6 +6,7 @@ import { viteCommonjs, esbuildCommonjs } from "@originjs/vite-plugin-commonjs";
 export default defineConfig({
   define: {
     global: "window",
+    "process.env": {},
   },
   optimizeDeps: {
     include: ["@react-navigation/native"],
