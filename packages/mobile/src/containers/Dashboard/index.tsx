@@ -9,7 +9,7 @@ import {useUserLaundryJob} from '@laundry-app/shared';
 import {LaundryJobResponse} from '@laundry-app/shared/openapi';
 import LaundryCard from '../../components/LaundryCard';
 import {generateTestId} from '../../utils/helpers';
-import {Text} from '@rneui/themed';
+import {Text} from 'native-base';
 import DashboardEmpty from './DashboardEmpty';
 
 type Props = NativeStackScreenProps<AuthedStackParamList, Routes.Dashboard>;

@@ -1,6 +1,6 @@
 import React from 'react';
 import {View} from 'react-native';
-import {Button, Text, Input} from '@rneui/themed';
+import {Input, Button, Text} from 'native-base';
 
 import styles from './Form.styles';
 import {addressSchemaResolver} from '@laundry-app/shared';
@@ -32,7 +32,6 @@ const NewAddress: React.FC<Props> = ({onSubmit, isLoading}) => {
             <>
               <Input
                 {...generateTestId('FormAddress')}
-                label="Address"
                 onBlur={onBlur}
                 value={value}
                 onChangeText={onChange}
@@ -49,7 +48,7 @@ const NewAddress: React.FC<Props> = ({onSubmit, isLoading}) => {
       </View>
 
       <Button
-        loading={isLoading}
+        isLoading={isLoading}
         disabled={isLoading}
         onPress={handleSubmit(onSubmit)}
         {...generateTestId('LoginButton')}>

@@ -2,13 +2,13 @@ import {useLaundryJob, useLaundryJobUpdateStatus} from '@laundry-app/shared';
 import {calculateTotalValue} from '@laundry-app/shared/utils/laundryJob';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import React from 'react';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
 import Routes from '../../config/routes';
 import {AuthedStackParamList} from '../Navigation';
 
 import {useDetailStyles} from './Details.styles';
 import Item from '../../components/Item';
-import {Button} from '@rneui/themed';
+import {Button, Text} from 'native-base';
 import {LaundryJobStatus} from '@laundry-app/shared/openapi';
 
 type Props = NativeStackScreenProps<AuthedStackParamList, Routes.Details>;
@@ -42,21 +42,12 @@ const DetailsContainer: React.FC<Props> = ({route}) => {
           />
         ))}
         {data?.status === LaundryJobStatus.Pending && (
-          <Button
-            loading={isLoading}
-            disabled={isLoading}
-            onPress={onCancel}
-            buttonStyle={styles.buttonStyle}
-            containerStyle={styles.buttonContainerStyle}>
+          <Button isLoading={isLoading} disabled={isLoading} onPress={onCancel}>
             Cancel
           </Button>
         )}
         {data?.status === LaundryJobStatus.Finished && (
-          <Button
-            loading={isLoading}
-            disabled={isLoading}
-            onPress={onCancel}
-            containerStyle={styles.buttonContainerStyle}>
+          <Button isLoading={isLoading} disabled={isLoading} onPress={onCancel}>
             Pay
           </Button>
         )}

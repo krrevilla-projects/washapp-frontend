@@ -2,7 +2,7 @@ import React from 'react';
 import {FlatList, TouchableOpacity} from 'react-native';
 
 import {AddressResponse} from '@laundry-app/shared/openapi';
-import {Text} from '@rneui/themed';
+import {Text} from 'native-base';
 
 interface Props {
   data: AddressResponse[];
