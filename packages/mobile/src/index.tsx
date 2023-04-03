@@ -6,13 +6,13 @@ import {initializeMMKVFlipper} from 'react-native-mmkv-flipper-plugin';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {AuthedNavigation, UnauthedNavigation} from './containers/Navigation';
 import {genericStorage, StorageKeys} from './utils/localStorage';
-import theme from './styles/theme';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {StyleSheet} from 'react-native';
 import Drawer from './containers/Drawer';
 import StorybookUIRoot from '../.storybook';
 import {useDevtool} from './hooks/devtool';
 import {NativeBaseProvider} from 'native-base';
+import theme from '@laundry-app/shared/style/theme';
 
 if (__DEV__) {
   initializeMMKVFlipper({default: genericStorage});

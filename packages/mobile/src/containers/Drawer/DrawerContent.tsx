@@ -4,9 +4,9 @@ import {
   useDrawer,
   useUserStore,
 } from '@laundry-app/shared';
-import {Divider, Button, Text} from 'native-base';
+import {Divider, Button, Text, useColorMode, Switch} from 'native-base';
 import React from 'react';
-import {View} from 'react-native';
+import {StatusBar, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {genericStorage, StorageKeys} from '../../utils/localStorage';
 import {useDrawerContentStyles} from './DrawerContent.styles';
@@ -20,6 +20,7 @@ const mapDrawerStore = (state: DrawerState) => {
 };
 
 const DrawerContent = () => {
+  const {colorMode, toggleColorMode} = useColorMode();
   const styles = useDrawerContentStyles();
   const isLoggedOutSuccessful = useUserStore(mapUserStore);
   const onClose = useDrawer(mapDrawerStore);
@@ -30,19 +31,19 @@ const DrawerContent = () => {
     onClose();
   };
 
-  // const onSwitchTheme = () => {
-  //   mode === 'light' ? setMode('dark') : setMode('light');
-  // };
+  const onSwitchTheme = () => {
+    toggleColorMode();
+  };
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* <StatusBar
-        barStyle={mode === 'light' ? 'dark-content' : 'light-content'}
-      /> */}
+      <StatusBar
+        barStyle={colorMode === 'light' ? 'dark-content' : 'light-content'}
+      />
       <View style={styles.section}>
         <View style={styles.themeSection}>
           <Text style={styles.title}>Dark Mode</Text>
-          {/* <Switch value={true} onValueChange={onSwitchTheme} /> */}
+          <Switch value={colorMode === 'dark'} onValueChange={onSwitchTheme} />
         </View>
       </View>
       <Divider thickness={0.5} />

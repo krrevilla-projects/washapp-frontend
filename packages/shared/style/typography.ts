@@ -1,13 +1,6 @@
 import { colors } from ".";
 
 export const fonts = {
-  DosisBold: "Dosis-Bold",
-  DosisExtraBold: "Dosis-ExtraBold",
-  DosisExtraLight: "Dosis-ExtraLight",
-  DosisLight: "Dosis-Light",
-  DosisMedium: "Dosis-Medium",
-  DosisRegular: "Dosis-Regular",
-  DosisSemiBold: "Dosis-SemiBold",
   InriaSansBold: "InriaSans-Bold",
   InriaSansBoldItalic: "InriaSans-BoldItalic",
   InriaSansItalic: "InriaSans-Italic",
