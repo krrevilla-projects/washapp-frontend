@@ -1,9 +1,16 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
-      "@mobile/containers/*": ["./src/containers/*"],
-      "@mobile/config/*": ["./src/config/*"],
-      "@mobile/utils/*": ["./src/utils/*"],
+      "@mobile/*": ["src/*"],
+      "@mobile-storybook/*": [".storybook/*"]
+      // "@mobile/assets/*": ["./src/assets/*"],
+      // "@mobile/components/*": ["./src/components/*"],
+      // "@mobile/config/*": ["./src/config/*"],
+      // "@mobile/containers/*": ["./src/containers/*"],
+      // "@mobile/hooks/*": ["./src/hooks/*"],
+      // "@mobile/styles/*": ["./src/styles/*"],
+      // "@mobile/utils/*": ["./src/utils/*"],
     }
   },
   "extends": "@tsconfig/react-native/tsconfig.json"

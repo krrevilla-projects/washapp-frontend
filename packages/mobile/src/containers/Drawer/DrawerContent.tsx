@@ -4,11 +4,12 @@ import {
   useDrawer,
   useUserStore,
 } from '@laundry-app/shared';
-import {Divider, Button, Text, useColorMode, Switch} from 'native-base';
+import {genericStorage, StorageKeys} from '@mobile/utils/localStorage';
+import {Button, Divider, Switch, Text, useColorMode} from 'native-base';
 import React from 'react';
 import {StatusBar, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {genericStorage, StorageKeys} from '../../utils/localStorage';
+
 import {useDrawerContentStyles} from './DrawerContent.styles';
 
 const mapUserStore = (state: AuthState) => {

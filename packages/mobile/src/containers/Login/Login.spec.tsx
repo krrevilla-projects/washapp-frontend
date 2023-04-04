@@ -1,19 +1,17 @@
-import React from 'react';
+import {reactQueryWrapper as ReactQueryWrapper} from '@laundry-app/shared/mocks/reactQuery';
+import Routes from '@mobile/config/routes';
+import {UnauthedStack} from '@mobile/containers/Navigation/UnauthedNavigation';
+import {NavigationContainer} from '@react-navigation/native';
 import {
-  render,
-  screen,
-  fireEvent,
   act,
   cleanup,
-  renderHook,
+  fireEvent,
+  render,
+  screen,
 } from '@testing-library/react-native';
+import React from 'react';
 
 import LoginContainer from '.';
-import {reactQueryWrapper as ReactQueryWrapper} from '@laundry-app/shared/mocks/reactQuery';
-import {UnauthedStack} from '../Navigation/UnauthedNavigation';
-import Routes from '../../config/routes';
-import {NavigationContainer} from '@react-navigation/native';
-import {useForm} from 'react-hook-form';
 
 const Component = () => (
   <ReactQueryWrapper>

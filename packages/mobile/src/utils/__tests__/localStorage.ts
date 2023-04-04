@@ -1,8 +1,8 @@
 import {
+  clearStorageData,
+  deleteGenericStorageData,
   getGenericStorageData,
   setGenericStorageData,
-  deleteGenericStorageData,
-  clearStorageData,
 } from '../localStorage';
 
 describe('Local Storage', () => {

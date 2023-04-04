@@ -1,12 +1,12 @@
+import {addressSchemaResolver} from '@laundry-app/shared';
+import {AddressDto} from '@laundry-app/shared/openapi';
+import {generateTestId} from '@mobile/utils/helpers';
+import {Button, Input, Text} from 'native-base';
 import React from 'react';
+import {Controller, useForm} from 'react-hook-form';
 import {View} from 'react-native';
-import {Input, Button, Text} from 'native-base';
 
 import styles from './Form.styles';
-import {addressSchemaResolver} from '@laundry-app/shared';
-import {Controller, useForm} from 'react-hook-form';
-import {AddressDto} from '@laundry-app/shared/openapi';
-import {generateTestId} from '../../utils/helpers';
 
 const formConfig = {
   defaultValues: {

@@ -1,15 +1,15 @@
-import React, {useCallback} from 'react';
-import {FlatList, View} from 'react-native';
-import type {NativeStackScreenProps} from '@react-navigation/native-stack';
-
-import {useDashboardStyle} from './Dashboard.styles';
-import type {AuthedStackParamList} from '../Navigation';
-import Routes from '../../config/routes';
 import {useUserLaundryJob} from '@laundry-app/shared';
 import {LaundryJobResponse} from '@laundry-app/shared/openapi';
-import LaundryCard from '../../components/LaundryCard';
-import {generateTestId} from '../../utils/helpers';
+import LaundryCard from '@mobile/components/LaundryCard';
+import Routes from '@mobile/config/routes';
+import type {AuthedStackParamList} from '@mobile/containers';
+import {generateTestId} from '@mobile/utils/helpers';
+import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {Text} from 'native-base';
+import React, {useCallback} from 'react';
+import {FlatList, View} from 'react-native';
+
+import {useDashboardStyle} from './Dashboard.styles';
 import DashboardEmpty from './DashboardEmpty';
 
 type Props = NativeStackScreenProps<AuthedStackParamList, Routes.Dashboard>;

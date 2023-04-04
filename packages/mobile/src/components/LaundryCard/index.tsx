@@ -1,15 +1,15 @@
+import {formatDate} from '@laundry-app/shared';
 import {
   LaundryJobResponse,
   LaundryJobStatus,
 } from '@laundry-app/shared/openapi';
 import {calculateTotalValue} from '@laundry-app/shared/utils/laundryJob';
-import React from 'react';
+import Status from '@mobile/components/Status';
 import {Divider, Text} from 'native-base';
+import React from 'react';
 import {TouchableOpacity, View} from 'react-native';
 
 import {useLaundryCardStyle} from './LaundryCard.styles';
-import {formatDate} from '@laundry-app/shared';
-import Status from '../../components/Status';
 import LaundryCardIcon from './LaundryCardIcon';
 
 interface Props {

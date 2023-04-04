@@ -1,14 +1,14 @@
+import {useAddressCreate, useAddressList} from '@laundry-app/shared';
+import {AddressDto} from '@laundry-app/shared/openapi';
+import Routes from '@mobile/config/routes';
+import type {AuthedStackParamList} from '@mobile/containers/Navigation';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import React from 'react';
 import {View} from 'react-native';
 
-import styles from './Form.styles';
-import {useAddressCreate, useAddressList} from '@laundry-app/shared';
-import {AddressDto} from '@laundry-app/shared/openapi';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {AuthedStackParamList} from '../Navigation';
-import Routes from '../../config/routes';
-import NewAddress from './NewAddress';
 import AddressList from './AddressList';
+import styles from './Form.styles';
+import NewAddress from './NewAddress';
 
 type Props = NativeStackScreenProps<AuthedStackParamList, Routes.Form>;
 

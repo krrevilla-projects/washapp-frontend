@@ -1,18 +1,20 @@
 import 'react-native-url-polyfill/auto';
-import {NavigationContainer} from '@react-navigation/native';
+
 import {QueryClientContainer, useUserStore} from '@laundry-app/shared';
+import theme from '@laundry-app/shared/style/theme';
+import StorybookUIRoot from '@mobile-storybook/index';
+import {NavigationContainer} from '@react-navigation/native';
+import {NativeBaseProvider} from 'native-base';
 import React, {useEffect} from 'react';
+import {StyleSheet} from 'react-native';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {initializeMMKVFlipper} from 'react-native-mmkv-flipper-plugin';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
-import {AuthedNavigation, UnauthedNavigation} from './containers/Navigation';
-import {genericStorage, StorageKeys} from './utils/localStorage';
-import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import {StyleSheet} from 'react-native';
+
 import Drawer from './containers/Drawer';
-import StorybookUIRoot from '../.storybook';
+import {AuthedNavigation, UnauthedNavigation} from './containers/Navigation';
 import {useDevtool} from './hooks/devtool';
-import {NativeBaseProvider} from 'native-base';
-import theme from '@laundry-app/shared/style/theme';
+import {genericStorage, StorageKeys} from './utils/localStorage';
 
 if (__DEV__) {
   initializeMMKVFlipper({default: genericStorage});

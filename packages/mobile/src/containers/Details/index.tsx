@@ -1,15 +1,15 @@
 import {useLaundryJob, useLaundryJobUpdateStatus} from '@laundry-app/shared';
+import {LaundryJobStatus} from '@laundry-app/shared/openapi';
 import {calculateTotalValue} from '@laundry-app/shared/utils/laundryJob';
+import Item from '@mobile/components/Item';
+import Routes from '@mobile/config/routes';
+import type {AuthedStackParamList} from '@mobile/containers';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {Button, Text} from 'native-base';
 import React from 'react';
 import {View} from 'react-native';
-import Routes from '../../config/routes';
-import {AuthedStackParamList} from '../Navigation';
 
 import {useDetailStyles} from './Details.styles';
-import Item from '../../components/Item';
-import {Button, Text} from 'native-base';
-import {LaundryJobStatus} from '@laundry-app/shared/openapi';
 
 type Props = NativeStackScreenProps<AuthedStackParamList, Routes.Details>;
 

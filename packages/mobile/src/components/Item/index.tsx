@@ -1,8 +1,8 @@
 import {colors} from '@laundry-app/shared/style';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import {Text} from 'native-base';
 import React from 'react';
 import {View} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import {useItemStyle} from './Item.styles';
 

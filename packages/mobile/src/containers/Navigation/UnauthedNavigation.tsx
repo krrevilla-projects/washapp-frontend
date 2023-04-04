@@ -1,13 +1,14 @@
-import React from 'react';
+import routes from '@mobile/config/routes';
+import {
+  LoginContainer,
+  OnboardingContainer,
+  RegistrationContainer,
+} from '@mobile/containers';
 import {
   createNativeStackNavigator,
   NativeStackNavigationOptions,
 } from '@react-navigation/native-stack';
-
-import OnboardingContainer from '@mobile/containers/Onboarding';
-import LoginContainer from '@mobile/containers/Login';
-import RegistrationContainer from '@mobile/containers/Registration';
-import routes from '@mobile/config/routes';
+import React from 'react';
 
 export type UnauthedStackParamList = {
   [routes.Onboarding]: undefined;

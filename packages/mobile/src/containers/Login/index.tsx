@@ -1,21 +1,20 @@
-import React from 'react';
-import {Pressable, View} from 'react-native';
-import {useForm, Controller} from 'react-hook-form';
-import {Button, Text, Input} from 'native-base';
-
 import {
   loginSchemaResolver,
   useAuthedUser,
   useLogin,
 } from '@laundry-app/shared';
 import {LoginUserDto} from '@laundry-app/shared/openapi';
+import Routes from '@mobile/config/routes';
+import type {UnauthedStackParamList} from '@mobile/containers';
+import {generateTestId} from '@mobile/utils/helpers';
+import {genericStorage, StorageKeys} from '@mobile/utils/localStorage';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {Button, Input, Text} from 'native-base';
+import React from 'react';
+import {Controller, useForm} from 'react-hook-form';
+import {Pressable, View} from 'react-native';
 
 import styles from './Login.styles';
-import {genericStorage, StorageKeys} from '../../utils/localStorage';
-import {generateTestId} from '../../utils/helpers';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {UnauthedStackParamList} from '../Navigation';
-import Routes from '../../config/routes';
 
 const formConfig = {
   defaultValues: {

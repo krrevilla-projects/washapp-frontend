@@ -1,16 +1,17 @@
 import {
-  useUserStore,
   AuthState,
   useLaundryJobCreate,
+  useUserStore,
 } from '@laundry-app/shared';
+import {colors} from '@laundry-app/shared/style';
 import {NativeStackHeaderProps} from '@react-navigation/native-stack';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {Text} from 'native-base';
 import React from 'react';
 import {ActivityIndicator, TouchableOpacity, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+
 import {useDashboardHeaderStyle} from './Dashboard.styles';
-import {colors} from '@laundry-app/shared/style';
 
 const mapUserStore = (state: AuthState) => {
   return state.user ? `, ${state.user.firstName}` : '';

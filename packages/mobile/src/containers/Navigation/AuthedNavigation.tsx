@@ -1,20 +1,21 @@
-import React from 'react';
+import {LaundryJobResponse} from '@laundry-app/shared/openapi';
+import {Routes} from '@mobile/config/routes';
+import {
+  DashboardContainer,
+  DashboardHeader,
+  DetailsContainer,
+  DetailsHeader,
+} from '@mobile/containers';
 import {
   createNativeStackNavigator,
   NativeStackHeaderProps,
 } from '@react-navigation/native-stack';
-import routes from '@mobile/config/routes';
-
-import DashboardContainer from '../Dashboard';
-import DetailsContainer from '../Details';
-import {LaundryJobResponse} from '@laundry-app/shared/openapi';
-import DashboardHeader from '../Dashboard/DashboardHeader';
-import DetailsHeader from '../Details/DetailsHeader';
+import React from 'react';
 
 export type AuthedStackParamList = {
-  [routes.Dashboard]: undefined;
-  [routes.Form]: undefined;
-  [routes.Details]: {id: number; preData?: LaundryJobResponse};
+  [Routes.Dashboard]: undefined;
+  [Routes.Form]: undefined;
+  [Routes.Details]: {id: number; preData?: LaundryJobResponse};
 };
 
 export const AuthedStack = createNativeStackNavigator<AuthedStackParamList>();
@@ -31,12 +32,12 @@ const AuthedNavigation: React.FC = () => {
   return (
     <AuthedStack.Navigator>
       <AuthedStack.Screen
-        name={routes.Dashboard}
+        name={Routes.Dashboard}
         options={{header: dashboardHeader}}
         component={DashboardContainer}
       />
       <AuthedStack.Screen
-        name={routes.Details}
+        name={Routes.Details}
         options={{header: detailsHeader}}
         component={DetailsContainer}
       />

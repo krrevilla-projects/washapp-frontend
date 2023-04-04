@@ -1,8 +1,7 @@
-import React from 'react';
-import {FlatList, TouchableOpacity} from 'react-native';
-
 import {AddressResponse} from '@laundry-app/shared/openapi';
 import {Text} from 'native-base';
+import React from 'react';
+import {FlatList, TouchableOpacity} from 'react-native';
 
 interface Props {
   data: AddressResponse[];

@@ -1,11 +1,12 @@
-import React from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {Image, Pressable, View} from 'react-native';
-import styles from './Onboarding.styles';
-import Routes from '../../config/routes';
-import {UnauthedStackParamList} from '../Navigation';
+import Routes from '@mobile/config/routes';
+import type {UnauthedStackParamList} from '@mobile/containers';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {Button, Text} from 'native-base';
+import React from 'react';
+import {Image, Pressable, View} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
+
+import styles from './Onboarding.styles';
 
 type Props = NativeStackScreenProps<UnauthedStackParamList, Routes.Onboarding>;
 

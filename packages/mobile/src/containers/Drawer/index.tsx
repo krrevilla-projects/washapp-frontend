@@ -1,6 +1,7 @@
 import {DrawerState, useDrawer} from '@laundry-app/shared';
 import React, {ReactNode} from 'react';
 import {Drawer as DrawerLayout} from 'react-native-drawer-layout';
+
 import DrawerContent from './DrawerContent';
 
 export interface DrawerProps {

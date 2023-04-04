@@ -1,6 +1,6 @@
+import {LaundryJobStatus} from '@laundry-app/shared/openapi';
 import React from 'react';
 import {View} from 'react-native';
-import {LaundryJobStatus} from '@laundry-app/shared/openapi';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import {useLaundryCardIconStyle} from './LaundryCard.styles';
