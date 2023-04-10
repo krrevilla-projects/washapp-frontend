@@ -3,7 +3,10 @@ import {colors, hexAlpha} from '@laundry-app/shared/style';
 import {makeStyles} from '@laundry-app/shared/utils/makeStyle';
 import {ColorMode} from 'native-base';
 
-const getBackgroundColor = (status: LaundryJobStatus, colorMode: ColorMode) => {
+export const getBackgroundColor = (
+  status: LaundryJobStatus,
+  colorMode: ColorMode,
+) => {
   if (colorMode === 'light') {
     switch (status) {
       case LaundryJobStatus.Cancelled:
@@ -19,7 +22,10 @@ const getBackgroundColor = (status: LaundryJobStatus, colorMode: ColorMode) => {
   }
 };
 
-const getTextColor = (status: LaundryJobStatus, colorMode: ColorMode) => {
+export const getTextColor = (
+  status: LaundryJobStatus,
+  colorMode: ColorMode,
+) => {
   if (colorMode === 'light') {
     return colors.white;
   } else {

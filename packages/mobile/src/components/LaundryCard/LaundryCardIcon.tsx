@@ -1,4 +1,5 @@
 import {LaundryJobStatus} from '@laundry-app/shared/openapi';
+import {generateTestId} from '@mobile/utils/helpers';
 import React from 'react';
 import {View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -29,7 +30,11 @@ const LaundryCardIcon: React.FC<LaundryCardIconProps> = props => {
 
   return (
     <View style={styles.iconContainer}>
-      <Icon name={iconName} style={styles.icon} />
+      <Icon
+        {...generateTestId(`LaundryCardIcon-${iconName}`)}
+        name={iconName}
+        style={styles.icon}
+      />
     </View>
   );
 };

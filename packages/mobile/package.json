@@ -85,6 +85,15 @@
     "testEnvironment": "jsdom",
     "transformIgnorePatterns": [
       "node_modules/(?!(jest-)?@react-native|react-native|@rneui|@react-navigation/*)"
+    ],
+    "collectCoverageFrom": [
+      "<rootDir>/src/**/*.(ts|tsx)",
+      "!<rootDir>/src/**/*.styles.(ts|tsx)",
+      "!<rootDir>/src/hooks/devtool.ts",
+      "!<rootDir>/src/utils/testUtils.tsx",
+      "!<rootDir>/src/index.tsx",
+      "!<rootDir>/src/containers/index.ts",
+      "!<rootDir>/src/config/routes.ts"
     ]
   },
   "loki": {

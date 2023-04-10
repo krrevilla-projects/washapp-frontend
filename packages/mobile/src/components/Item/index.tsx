@@ -1,4 +1,5 @@
 import {colors} from '@laundry-app/shared/style';
+import {generateTestId} from '@mobile/utils/helpers';
 import {Text} from 'native-base';
 import React from 'react';
 import {View} from 'react-native';
@@ -6,7 +7,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import {useItemStyle} from './Item.styles';
 
-interface ItemProps {
+export interface ItemProps {
   name: string;
   quantity: number;
   itemPrice: number;
@@ -16,9 +17,13 @@ const Item: React.FC<ItemProps> = props => {
   const styles = useItemStyle();
 
   return (
-    <View style={styles.listItem}>
+    <View style={styles.listItem} {...generateTestId('Item')}>
       <View style={styles.iconContainer}>
-        <Icon name="shopping-basket" color={colors.white} />
+        <Icon
+          {...generateTestId('ItemIcon')}
+          name="shopping-basket"
+          color={colors.white}
+        />
       </View>
       <View style={styles.nameContainer}>
         <Text style={styles.name}>{props.name}</Text>

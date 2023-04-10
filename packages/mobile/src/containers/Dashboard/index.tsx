@@ -42,7 +42,9 @@ const DashboardContainer: React.FC<Props> = ({navigation: {navigate}}) => {
   }
 
   return (
-    <View {...generateTestId('Dashboard')} style={styles.rootContainer}>
+    <View
+      {...generateTestId('DashboardContainer')}
+      style={styles.rootContainer}>
       <Text style={styles.historyLabel}>Transaction History</Text>
       <FlatList
         refreshing={false}

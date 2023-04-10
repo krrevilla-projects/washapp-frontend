@@ -4,6 +4,7 @@ import {calculateTotalValue} from '@laundry-app/shared/utils/laundryJob';
 import Item from '@mobile/components/Item';
 import Routes from '@mobile/config/routes';
 import type {AuthedStackParamList} from '@mobile/containers';
+import {generateTestId} from '@mobile/utils/helpers';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {Button, Text} from 'native-base';
 import React from 'react';
@@ -42,12 +43,20 @@ const DetailsContainer: React.FC<Props> = ({route}) => {
           />
         ))}
         {data?.status === LaundryJobStatus.Pending && (
-          <Button isLoading={isLoading} disabled={isLoading} onPress={onCancel}>
+          <Button
+            {...generateTestId('DetailsButton')}
+            isLoading={isLoading}
+            disabled={isLoading}
+            onPress={onCancel}>
             Cancel
           </Button>
         )}
         {data?.status === LaundryJobStatus.Finished && (
-          <Button isLoading={isLoading} disabled={isLoading} onPress={onCancel}>
+          <Button
+            {...generateTestId('DetailsButton')}
+            isLoading={isLoading}
+            disabled={isLoading}
+            onPress={onCancel}>
             Pay
           </Button>
         )}

@@ -9,7 +9,7 @@ import type {UnauthedStackParamList} from '@mobile/containers';
 import {generateTestId} from '@mobile/utils/helpers';
 import {genericStorage, StorageKeys} from '@mobile/utils/localStorage';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {Button, Input, Text} from 'native-base';
+import {Button, FormControl, Input, Text} from 'native-base';
 import React from 'react';
 import {Controller, useForm} from 'react-hook-form';
 import {Pressable, View} from 'react-native';
@@ -46,20 +46,28 @@ const LoginContainer: React.FC<Props> = ({navigation}) => {
     <View style={styles.rootContainer} {...generateTestId('LoginContainer')}>
       <View style={styles.header}>
         <Text style={styles.login}>Login</Text>
-        <Pressable onPress={onCreateAccount}>
+        <Pressable
+          {...generateTestId('LoginCreateAccount')}
+          accessibilityRole="button"
+          onPress={onCreateAccount}>
           <Text style={styles.createAccount}>Create Account</Text>
         </Pressable>
       </View>
       <View style={styles.input}>
         <Controller
           control={control}
-          render={({field: {onChange, onBlur, value}}) => (
-            <Input
-              {...generateTestId('LoginEmail')}
-              onBlur={onBlur}
-              value={value}
-              onChangeText={onChange}
-            />
+          render={({formState: {errors}, field: {onChange, onBlur, value}}) => (
+            <FormControl isInvalid={!!errors?.email?.message}>
+              <Input
+                {...generateTestId('LoginEmail')}
+                onBlur={onBlur}
+                value={value}
+                onChangeText={onChange}
+              />
+              <FormControl.ErrorMessage {...generateTestId('LoginInputError')}>
+                {errors?.email?.message ?? ''}
+              </FormControl.ErrorMessage>
+            </FormControl>
           )}
           name="email"
         />
@@ -67,14 +75,19 @@ const LoginContainer: React.FC<Props> = ({navigation}) => {
       <View style={styles.input}>
         <Controller
           control={control}
-          render={({field: {onChange, onBlur, value}}) => (
-            <Input
-              {...generateTestId('LoginPassword')}
-              secureTextEntry={true}
-              onBlur={onBlur}
-              value={value}
-              onChangeText={onChange}
-            />
+          render={({formState: {errors}, field: {onChange, onBlur, value}}) => (
+            <FormControl isInvalid={!!errors?.password?.message}>
+              <Input
+                {...generateTestId('LoginPassword')}
+                secureTextEntry={true}
+                onBlur={onBlur}
+                value={value}
+                onChangeText={onChange}
+              />
+              <FormControl.ErrorMessage {...generateTestId('LoginInputError')}>
+                {errors?.password?.message}
+              </FormControl.ErrorMessage>
+            </FormControl>
           )}
           name="password"
         />

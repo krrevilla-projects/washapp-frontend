@@ -26,12 +26,16 @@ export const handlers = [
       [ctx.status(200), ctx.json(getMenuControllerFindAll200Response())],
     ];
 
+    ctx.delay(5000);
+
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.post(`${baseURL}/menu`, (_, res, ctx) => {
     const resultArray = [
       [ctx.status(200), ctx.json(getMenuControllerCreateOne200Response())],
     ];
+
+    ctx.delay(5000);
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -40,12 +44,16 @@ export const handlers = [
       [ctx.status(200), ctx.json(getMenuControllerFindOne200Response())],
     ];
 
+    ctx.delay(5000);
+
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.patch(`${baseURL}/menu/:id`, (_, res, ctx) => {
     const resultArray = [
       [ctx.status(200), ctx.json(getMenuControllerUpdateOne200Response())],
     ];
+
+    ctx.delay(5000);
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -54,12 +62,16 @@ export const handlers = [
       [ctx.status(200), ctx.json(getAuthControllerLogin200Response())],
     ];
 
+    ctx.delay(5000);
+
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.post(`${baseURL}/auth/register`, (_, res, ctx) => {
     const resultArray = [
       [ctx.status(200), ctx.json(getAuthControllerRegister200Response())],
     ];
+
+    ctx.delay(5000);
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -68,12 +80,16 @@ export const handlers = [
       [ctx.status(200), ctx.json(getAddressControllerFindByUser200Response())],
     ];
 
+    ctx.delay(5000);
+
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.post(`${baseURL}/address`, (_, res, ctx) => {
     const resultArray = [
       [ctx.status(200), ctx.json(getAddressControllerCreateOne200Response())],
     ];
+
+    ctx.delay(5000);
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -82,10 +98,14 @@ export const handlers = [
       [ctx.status(200), ctx.json(getAddressControllerUpdateOne200Response())],
     ];
 
+    ctx.delay(5000);
+
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.delete(`${baseURL}/address/:id`, (_, res, ctx) => {
     const resultArray = [[ctx.status(200), ctx.json(null)]];
+
+    ctx.delay(5000);
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -93,6 +113,8 @@ export const handlers = [
     const resultArray = [
       [ctx.status(200), ctx.json(getLaundryJobControllerFindAll200Response())],
     ];
+
+    ctx.delay(5000);
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -104,12 +126,16 @@ export const handlers = [
       ],
     ];
 
+    ctx.delay(5000);
+
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.get(`${baseURL}/laundry-job/:id`, (_, res, ctx) => {
     const resultArray = [
       [ctx.status(200), ctx.json(getLaundryJobControllerFindOne200Response())],
     ];
+
+    ctx.delay(5000);
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -121,6 +147,8 @@ export const handlers = [
       ],
     ];
 
+    ctx.delay(5000);
+
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.get(`${baseURL}/laundry-job/user/:id`, (_, res, ctx) => {
@@ -130,6 +158,8 @@ export const handlers = [
         ctx.json(getLaundryJobControllerFindByUser200Response()),
       ],
     ];
+
+    ctx.delay(5000);
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -141,6 +171,8 @@ export const handlers = [
       ],
     ];
 
+    ctx.delay(5000);
+
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.patch(`${baseURL}/job-items/:id`, (_, res, ctx) => {
@@ -148,10 +180,14 @@ export const handlers = [
       [ctx.status(200), ctx.json(getJobItemsControllerUpdateOne200Response())],
     ];
 
+    ctx.delay(5000);
+
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.delete(`${baseURL}/job-items/:id`, (_, res, ctx) => {
     const resultArray = [[ctx.status(200), ctx.json(null)]];
+
+    ctx.delay(5000);
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -160,12 +196,16 @@ export const handlers = [
       [ctx.status(200), ctx.json(getJobItemsControllerCreateOne200Response())],
     ];
 
+    ctx.delay(5000);
+
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.get(`${baseURL}/user/me/profile`, (_, res, ctx) => {
     const resultArray = [
       [ctx.status(200), ctx.json(getUserControllerFindOne200Response())],
     ];
+
+    ctx.delay(5000);
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -176,6 +216,8 @@ export const handlers = [
         ctx.json(getUserControllerFindMyLaundryJob200Response()),
       ],
     ];
+
+    ctx.delay(5000);
 
     return res(...resultArray[next() % resultArray.length]);
   }),

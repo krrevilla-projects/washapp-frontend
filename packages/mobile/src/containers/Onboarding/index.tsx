@@ -1,5 +1,6 @@
 import Routes from '@mobile/config/routes';
 import type {UnauthedStackParamList} from '@mobile/containers';
+import {generateTestId} from '@mobile/utils/helpers';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {Button, Text} from 'native-base';
 import React from 'react';
@@ -20,7 +21,10 @@ const OnboardingContainer: React.FC<Props> = ({navigation}) => {
   };
 
   return (
-    <SafeAreaView edges={['top']} style={styles.rootContainer}>
+    <SafeAreaView
+      {...generateTestId('OnboardingContainer')}
+      edges={['top']}
+      style={styles.rootContainer}>
       <View style={styles.content}>
         <Image
           style={styles.image}
@@ -30,8 +34,12 @@ const OnboardingContainer: React.FC<Props> = ({navigation}) => {
         />
       </View>
       <SafeAreaView style={styles.footer}>
-        <Button onPress={onLogin}>Login</Button>
-        <Pressable onPress={onRegister}>
+        <Button {...generateTestId('OnboardingLogin')} onPress={onLogin}>
+          Login
+        </Button>
+        <Pressable
+          {...generateTestId('OnboardingRegister')}
+          onPress={onRegister}>
           <Text style={styles.createAccount}>Create Account</Text>
         </Pressable>
       </SafeAreaView>

@@ -19,7 +19,7 @@ interface Props {
 
 const LaundryCard: React.FC<Props> = ({data, onPress}) => {
   const styles = useLaundryCardStyle();
-  const totalValue = calculateTotalValue(data?.items ?? []);
+  const totalValue = calculateTotalValue(data.items);
 
   const onCardPress = () => {
     onPress(data);
@@ -27,7 +27,7 @@ const LaundryCard: React.FC<Props> = ({data, onPress}) => {
 
   return (
     <React.Fragment>
-      <TouchableOpacity onPress={onCardPress}>
+      <TouchableOpacity accessibilityRole="button" onPress={onCardPress}>
         <View style={styles.container}>
           <LaundryCardIcon status={data.status as LaundryJobStatus} />
           <View style={styles.detailsContainer}>

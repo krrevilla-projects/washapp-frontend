@@ -4,7 +4,7 @@ import {
   useUserStore,
 } from '@laundry-app/shared';
 import {colors} from '@laundry-app/shared/style';
-import {NativeStackHeaderProps} from '@react-navigation/native-stack';
+import {generateTestId} from '@mobile/utils/helpers';
 import {Text} from 'native-base';
 import React from 'react';
 import {ActivityIndicator, TouchableOpacity, View} from 'react-native';
@@ -17,7 +17,7 @@ const mapUserStore = (state: AuthState) => {
   return state.user ? `, ${state.user.firstName}` : '';
 };
 
-const DashboardHeader = ({}: NativeStackHeaderProps) => {
+const DashboardHeader = () => {
   const styles = useDashboardHeaderStyle();
   const userName = useUserStore(mapUserStore);
   const {onCreateLaundryJob, isLoading} = useLaundryJobCreate();
@@ -35,13 +35,18 @@ const DashboardHeader = ({}: NativeStackHeaderProps) => {
           </Text>
         </View>
         <TouchableOpacity
+          accessibilityRole="button"
           disabled={isLoading}
           onPress={onRequestNewLaundry}
           style={styles.basketIconContainer}>
           {isLoading ? (
-            <ActivityIndicator color={colors.dark} />
+            <ActivityIndicator
+              {...generateTestId('DashboardHeaderLoading')}
+              color={colors.dark}
+            />
           ) : (
             <Icon
+              {...generateTestId('DashboardHeaderBasketIcon')}
               size={20}
               name="basket-plus-outline"
               style={styles.basketIcon}

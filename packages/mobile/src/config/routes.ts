@@ -3,7 +3,6 @@ export enum Routes {
   Login = 'Login',
   Registration = 'Registration',
   Dashboard = 'Dashboard',
-  Form = 'Form',
   Details = 'Details',
 }
 

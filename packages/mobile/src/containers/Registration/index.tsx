@@ -9,7 +9,7 @@ import type {UnauthedStackParamList} from '@mobile/containers';
 import {generateTestId} from '@mobile/utils/helpers';
 import {genericStorage, StorageKeys} from '@mobile/utils/localStorage';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
-import {Button, Input, Text} from 'native-base';
+import {Button, FormControl, Input, Text} from 'native-base';
 import React from 'react';
 import {Controller, useForm} from 'react-hook-form';
 import {ScrollView, View} from 'react-native';
@@ -46,7 +46,9 @@ const RegistrationContainer: React.FC<Props> = () => {
   };
 
   return (
-    <View style={styles.rootContainer}>
+    <View
+      style={styles.rootContainer}
+      {...generateTestId('RegistrationContainer')}>
       <View style={styles.header}>
         <Text style={styles.createAccount}>Create Account</Text>
       </View>
@@ -54,13 +56,22 @@ const RegistrationContainer: React.FC<Props> = () => {
         <View style={styles.input}>
           <Controller
             control={control}
-            render={({field: {onChange, onBlur, value}}) => (
-              <Input
-                {...generateTestId('LoginFirstName')}
-                onBlur={onBlur}
-                value={value}
-                onChangeText={onChange}
-              />
+            render={({
+              formState: {errors},
+              field: {onChange, onBlur, value},
+            }) => (
+              <FormControl isInvalid={!!errors?.firstName?.message}>
+                <Input
+                  {...generateTestId('RegistrationFirstName')}
+                  onBlur={onBlur}
+                  value={value}
+                  onChangeText={onChange}
+                />
+                <FormControl.ErrorMessage
+                  {...generateTestId('RegistrationInputError')}>
+                  {errors?.firstName?.message}
+                </FormControl.ErrorMessage>
+              </FormControl>
             )}
             name="firstName"
           />
@@ -68,13 +79,22 @@ const RegistrationContainer: React.FC<Props> = () => {
         <View style={styles.input}>
           <Controller
             control={control}
-            render={({field: {onChange, onBlur, value}}) => (
-              <Input
-                {...generateTestId('LoginLastName')}
-                onBlur={onBlur}
-                value={value}
-                onChangeText={onChange}
-              />
+            render={({
+              formState: {errors},
+              field: {onChange, onBlur, value},
+            }) => (
+              <FormControl isInvalid={!!errors?.lastName?.message}>
+                <Input
+                  {...generateTestId('RegistrationLastName')}
+                  onBlur={onBlur}
+                  value={value}
+                  onChangeText={onChange}
+                />
+                <FormControl.ErrorMessage
+                  {...generateTestId('RegistrationInputError')}>
+                  {errors?.lastName?.message ?? ''}
+                </FormControl.ErrorMessage>
+              </FormControl>
             )}
             name="lastName"
           />
@@ -82,13 +102,22 @@ const RegistrationContainer: React.FC<Props> = () => {
         <View style={styles.input}>
           <Controller
             control={control}
-            render={({field: {onChange, onBlur, value}}) => (
-              <Input
-                {...generateTestId('LoginEmail')}
-                onBlur={onBlur}
-                value={value}
-                onChangeText={onChange}
-              />
+            render={({
+              formState: {errors},
+              field: {onChange, onBlur, value},
+            }) => (
+              <FormControl isInvalid={!!errors?.email?.message}>
+                <Input
+                  {...generateTestId('RegistrationEmail')}
+                  onBlur={onBlur}
+                  value={value}
+                  onChangeText={onChange}
+                />
+                <FormControl.ErrorMessage
+                  {...generateTestId('RegistrationInputError')}>
+                  {errors?.email?.message ?? ''}
+                </FormControl.ErrorMessage>
+              </FormControl>
             )}
             name="email"
           />
@@ -96,13 +125,22 @@ const RegistrationContainer: React.FC<Props> = () => {
         <View style={styles.input}>
           <Controller
             control={control}
-            render={({field: {onChange, onBlur, value}}) => (
-              <Input
-                {...generateTestId('LoginContact')}
-                onBlur={onBlur}
-                value={value}
-                onChangeText={onChange}
-              />
+            render={({
+              formState: {errors},
+              field: {onChange, onBlur, value},
+            }) => (
+              <FormControl isInvalid={!!errors?.contact?.message}>
+                <Input
+                  {...generateTestId('RegistrationContact')}
+                  onBlur={onBlur}
+                  value={value}
+                  onChangeText={onChange}
+                />
+                <FormControl.ErrorMessage
+                  {...generateTestId('RegistrationInputError')}>
+                  {errors?.contact?.message ?? ''}
+                </FormControl.ErrorMessage>
+              </FormControl>
             )}
             name="contact"
           />
@@ -110,14 +148,23 @@ const RegistrationContainer: React.FC<Props> = () => {
         <View style={styles.input}>
           <Controller
             control={control}
-            render={({field: {onChange, onBlur, value}}) => (
-              <Input
-                {...generateTestId('LoginPassword')}
-                secureTextEntry={true}
-                onBlur={onBlur}
-                value={value}
-                onChangeText={onChange}
-              />
+            render={({
+              formState: {errors},
+              field: {onChange, onBlur, value},
+            }) => (
+              <FormControl isInvalid={!!errors?.password?.message}>
+                <Input
+                  {...generateTestId('RegistrationPassword')}
+                  secureTextEntry={true}
+                  onBlur={onBlur}
+                  value={value}
+                  onChangeText={onChange}
+                />
+                <FormControl.ErrorMessage
+                  {...generateTestId('RegistrationInputError')}>
+                  {errors?.password?.message ?? ''}
+                </FormControl.ErrorMessage>
+              </FormControl>
             )}
             name="password"
           />
@@ -125,20 +172,30 @@ const RegistrationContainer: React.FC<Props> = () => {
         <View style={styles.input}>
           <Controller
             control={control}
-            render={({field: {onChange, onBlur, value}}) => (
-              <Input
-                {...generateTestId('LoginPassword')}
-                secureTextEntry={true}
-                onBlur={onBlur}
-                value={value}
-                onChangeText={onChange}
-              />
+            render={({
+              formState: {errors},
+              field: {onChange, onBlur, value},
+            }) => (
+              <FormControl isInvalid={!!errors?.confirmPassword?.message}>
+                <Input
+                  {...generateTestId('RegistrationConfirmPassword')}
+                  secureTextEntry={true}
+                  onBlur={onBlur}
+                  value={value}
+                  onChangeText={onChange}
+                />
+                <FormControl.ErrorMessage
+                  {...generateTestId('RegistrationInputError')}>
+                  {errors?.confirmPassword?.message ?? ''}
+                </FormControl.ErrorMessage>
+              </FormControl>
             )}
             name="confirmPassword"
           />
         </View>
         <Button
-          {...generateTestId('LoginButton')}
+          accessibilityRole="button"
+          {...generateTestId('RegistrationButton')}
           isLoading={isFetching || isLoading}
           disabled={isFetching || isLoading}
           onPress={handleSubmit(onSubmit)}>

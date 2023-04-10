@@ -2,8 +2,6 @@ import 'react-native-url-polyfill/auto';
 
 import {QueryClientContainer, useUserStore} from '@laundry-app/shared';
 import theme from '@laundry-app/shared/style/theme';
-import StorybookUIRoot from '@mobile-storybook/index';
-import {NavigationContainer} from '@react-navigation/native';
 import {NativeBaseProvider} from 'native-base';
 import React, {useEffect} from 'react';
 import {StyleSheet} from 'react-native';
@@ -11,8 +9,9 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {initializeMMKVFlipper} from 'react-native-mmkv-flipper-plugin';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
+import StorybookUIRoot from '../.storybook';
 import Drawer from './containers/Drawer';
-import {AuthedNavigation, UnauthedNavigation} from './containers/Navigation';
+import Navigation from './containers/Navigation';
 import {useDevtool} from './hooks/devtool';
 import {genericStorage, StorageKeys} from './utils/localStorage';
 
@@ -23,7 +22,7 @@ if (__DEV__) {
 const LaundryApp: React.FC = () => {
   const showStorybook = useDevtool();
 
-  const {setAccessToken, isAuthed} = useUserStore(state => {
+  const {setAccessToken} = useUserStore(state => {
     return {
       setAccessToken: state.setAccessToken,
       isAuthed: state.isAuthed,
@@ -52,9 +51,7 @@ const LaundryApp: React.FC = () => {
         <GestureHandlerRootView style={styles.gestureHandler}>
           <SafeAreaProvider>
             <Drawer>
-              <NavigationContainer>
-                {isAuthed ? <AuthedNavigation /> : <UnauthedNavigation />}
-              </NavigationContainer>
+              <Navigation />
             </Drawer>
           </SafeAreaProvider>
         </GestureHandlerRootView>

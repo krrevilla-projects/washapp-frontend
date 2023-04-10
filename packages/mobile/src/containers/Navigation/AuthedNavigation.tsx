@@ -14,15 +14,12 @@ import React from 'react';
 
 export type AuthedStackParamList = {
   [Routes.Dashboard]: undefined;
-  [Routes.Form]: undefined;
   [Routes.Details]: {id: number; preData?: LaundryJobResponse};
 };
 
 export const AuthedStack = createNativeStackNavigator<AuthedStackParamList>();
 
-const dashboardHeader = (props: NativeStackHeaderProps) => (
-  <DashboardHeader {...props} />
-);
+const dashboardHeader = () => <DashboardHeader />;
 
 const detailsHeader = (props: NativeStackHeaderProps) => (
   <DetailsHeader {...props} />
