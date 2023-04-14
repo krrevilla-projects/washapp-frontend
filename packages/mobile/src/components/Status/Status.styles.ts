@@ -10,6 +10,7 @@ export const getBackgroundColor = (
   if (colorMode === 'light') {
     switch (status) {
       case LaundryJobStatus.Cancelled:
+        return `${colors.red}${hexAlpha[50]}`;
       case LaundryJobStatus.Paid:
       case LaundryJobStatus.Finished:
         return `${colors.green_1}${hexAlpha[50]}`;
