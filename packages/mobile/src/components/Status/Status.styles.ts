@@ -1,5 +1,5 @@
 import {LaundryJobStatus} from '@laundry-app/shared/openapi';
-import {colors, hexAlpha} from '@laundry-app/shared/style';
+import {colors, hexAlpha, typography} from '@laundry-app/shared/style';
 import {makeStyles} from '@laundry-app/shared/utils/makeStyle';
 import {ColorMode} from 'native-base';
 
@@ -49,6 +49,7 @@ export const useStatusStyle = makeStyles(
       backgroundColor: getBackgroundColor(status, colorMode),
     },
     textStyle: {
+      ...typography.bodyMedium,
       color: getTextColor(status, colorMode),
       textTransform: 'capitalize',
     },

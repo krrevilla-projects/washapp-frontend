@@ -18,9 +18,12 @@ global.STORIES = [
   },
 ];
 
-import "@storybook/addon-links/register";
-import "@storybook/addon-essentials/register";
-import "@storybook/addon-react-native-web/register";
+import "@storybook/addon-ondevice-notes/register";
+import "@storybook/addon-ondevice-controls/register";
+import "@storybook/addon-ondevice-backgrounds/register";
+import "@storybook/addon-ondevice-actions/register";
+
+import { argsEnhancers } from "@storybook/addon-actions/dist/modern/preset/addArgs";
 
 import { decorators, parameters } from "./preview";
 
@@ -40,9 +43,16 @@ if (parameters) {
   addParameters(parameters);
 }
 
+try {
+  argsEnhancers.forEach((enhancer) => addArgsEnhancer(enhancer));
+} catch { }
+
 const getStories = () => {
   return {
-    "./src/components/Item/Item.stories.tsx": require("../src/components/Item/Item.stories.tsx"),
+    "./src/components/components/Item/Item.stories.tsx": require("../src/components/Item/Item.stories.tsx"),
+    "./src/components/components/LaundryCard/LaundryCard.stories.tsx": require("../src/components/LaundryCard/LaundryCard.stories.tsx"),
+    "./src/components/components/LaundryCard/LaundryCardIcon.stories.tsx": require("../src/components/LaundryCard/LaundryCardIcon.stories.tsx"),
+    "./src/components/components/Status/Status.stories.tsx": require("../src/components/Status/Status.stories.tsx"),
   };
 };
 

@@ -9,7 +9,7 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {initializeMMKVFlipper} from 'react-native-mmkv-flipper-plugin';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
-import StorybookUIRoot from '../.storybook';
+import StorybookUIRoot from '../.ondevice/Storybook';
 import Drawer from './containers/Drawer';
 import Navigation from './containers/Navigation';
 import {useDevtool} from './hooks/devtool';

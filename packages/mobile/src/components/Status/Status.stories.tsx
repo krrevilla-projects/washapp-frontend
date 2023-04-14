@@ -1,21 +1,13 @@
 import {LaundryJobStatus} from '@laundry-app/shared/openapi';
-import React from 'react';
-import {View} from 'react-native';
-import LaundryCardIcon from '../../../../src/components/LaundryCard/LaundryCardIcon';
 
-const LaundryCardIconMeta = {
-  title: 'Laundry Card Icon',
-  component: LaundryCardIcon,
-  decorators: [
-    Story => (
-      <View style={{justifyContent: 'center', flex: 1}}>
-        <Story />
-      </View>
-    ),
-  ],
+import Status from '.';
+
+const StatusMeta = {
+  title: 'Status',
+  component: Status,
 };
 
-export default LaundryCardIconMeta;
+export default StatusMeta;
 
 export const Pending = {
   args: {
