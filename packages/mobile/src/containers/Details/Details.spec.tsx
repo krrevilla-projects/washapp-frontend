@@ -17,6 +17,7 @@ describe('<Details />', () => {
         <Navigator>
           <Screen
             name="MockedScreen"
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
             component={DetailsContainer as any}
             initialParams={{id: mockLaundryJob.id, preData: mockLaundryJob}}
           />

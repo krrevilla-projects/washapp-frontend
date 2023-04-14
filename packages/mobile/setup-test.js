@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable @typescript-eslint/no-var-requires */
 import '@testing-library/jest-dom';
 // include this line for mocking react-native-gesture-handler
 import 'react-native-gesture-handler/jestSetup';
@@ -8,7 +10,8 @@ jest.mock('react-native-reanimated', () => {
 
   // The mock for `call` immediately calls the callback which is incorrect
   // So we override it with a no-op
-  Reanimated.default.call = () => {};
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  Reanimated.default.call = () => { };
 
   return Reanimated;
 });
