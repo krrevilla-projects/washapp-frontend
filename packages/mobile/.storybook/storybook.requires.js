@@ -42,7 +42,10 @@ if (parameters) {
 
 const getStories = () => {
   return {
-    "./src/components/Item/Item.stories.tsx": require("../src/components/Item/Item.stories.tsx"),
+    "./src/components/components/Item/Item.stories.tsx": require("../src/components/Item/Item.stories.tsx"),
+    "./src/components/components/LaundryCard/LaundryCard.stories.tsx": require("../src/components/LaundryCard/LaundryCard.stories.tsx"),
+    "./src/components/components/LaundryCard/LaundryCardIcon.stories.tsx": require("../src/components/LaundryCard/LaundryCardIcon.stories.tsx"),
+    "./src/components/components/Status/Status.stories.tsx": require("../src/components/Status/Status.stories.tsx"),
   };
 };
 
