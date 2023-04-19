@@ -7,7 +7,8 @@ import {generateTestId} from '@mobile/utils/helpers';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {Text} from 'native-base';
 import React, {useCallback} from 'react';
-import {FlatList, View} from 'react-native';
+import {FlatList, ListRenderItemInfo, View} from 'react-native';
+import Animated, {FadeInRight} from 'react-native-reanimated';
 
 import {useDashboardStyle} from './Dashboard.styles';
 import DashboardEmpty from './DashboardEmpty';
@@ -31,8 +32,14 @@ const DashboardContainer: React.FC<Props> = ({navigation: {navigate}}) => {
   );
 
   const renderItem = useCallback(
-    ({item}: {item: LaundryJobResponse}) => {
-      return <LaundryCard data={item} onPress={onLaundryCardPress} />;
+    (item: ListRenderItemInfo<LaundryJobResponse>) => {
+      const animation = FadeInRight.delay(item.index * 50).duration(500);
+
+      return (
+        <Animated.View entering={animation}>
+          <LaundryCard data={item.item} onPress={onLaundryCardPress} />
+        </Animated.View>
+      );
     },
     [onLaundryCardPress],
   );
@@ -46,7 +53,7 @@ const DashboardContainer: React.FC<Props> = ({navigation: {navigate}}) => {
       {...generateTestId('DashboardContainer')}
       style={styles.rootContainer}>
       <Text style={styles.historyLabel}>Transaction History</Text>
-      <FlatList
+      <FlatList<LaundryJobResponse>
         refreshing={false}
         onRefresh={refetch}
         contentContainerStyle={styles.contentContainer}

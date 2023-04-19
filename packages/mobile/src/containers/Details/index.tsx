@@ -1,5 +1,5 @@
 import {useLaundryJob, useLaundryJobUpdateStatus} from '@laundry-app/shared';
-import {LaundryJobStatus} from '@laundry-app/shared/openapi';
+import {JobItemsResponse, LaundryJobStatus} from '@laundry-app/shared/openapi';
 import {calculateTotalValue} from '@laundry-app/shared/utils/laundryJob';
 import Item from '@mobile/components/Item';
 import Routes from '@mobile/config/routes';
@@ -9,10 +9,26 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {Button, Text} from 'native-base';
 import React from 'react';
 import {View} from 'react-native';
+import Animated, {FadeInRight} from 'react-native-reanimated';
 
 import {useDetailStyles} from './Details.styles';
 
 type Props = NativeStackScreenProps<AuthedStackParamList, Routes.Details>;
+
+const renderItem = (item: JobItemsResponse, index: number) => {
+  const animation = FadeInRight.delay(index * 50).duration(500);
+
+  return (
+    <Animated.View entering={animation}>
+      <Item
+        key={item.id}
+        name={item.item.name}
+        itemPrice={item.item.price}
+        quantity={item.quantity}
+      />
+    </Animated.View>
+  );
+};
 
 const DetailsContainer: React.FC<Props> = ({route}) => {
   const styles = useDetailStyles();
@@ -34,14 +50,7 @@ const DetailsContainer: React.FC<Props> = ({route}) => {
 
       <View style={styles.dataTable}>
         <Text style={styles.itemsLabel}>ITEMS</Text>
-        {data?.items.map(item => (
-          <Item
-            key={item.id}
-            name={item.item.name}
-            itemPrice={item.item.price}
-            quantity={item.quantity}
-          />
-        ))}
+        {data?.items.map(renderItem)}
         {data?.status === LaundryJobStatus.Pending && (
           <Button
             {...generateTestId('DetailsButton')}

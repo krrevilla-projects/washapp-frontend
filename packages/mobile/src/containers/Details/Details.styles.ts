@@ -10,6 +10,7 @@ export const useDetailStyles = makeStyles(colorMode => ({
   totalValue: {
     ...typography.header2,
     color: colorMode === 'light' ? colors.dark : colors.white,
+    paddingTop: 5,
   },
   totalLabel: {
     ...typography.bodyMedium,

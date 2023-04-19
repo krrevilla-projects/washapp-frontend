@@ -45,14 +45,14 @@ if (parameters) {
 
 try {
   argsEnhancers.forEach((enhancer) => addArgsEnhancer(enhancer));
-} catch { }
+} catch {}
 
 const getStories = () => {
   return {
-    "./src/components/components/Item/Item.stories.tsx": require("../src/components/Item/Item.stories.tsx"),
-    "./src/components/components/LaundryCard/LaundryCard.stories.tsx": require("../src/components/LaundryCard/LaundryCard.stories.tsx"),
-    "./src/components/components/LaundryCard/LaundryCardIcon.stories.tsx": require("../src/components/LaundryCard/LaundryCardIcon.stories.tsx"),
-    "./src/components/components/Status/Status.stories.tsx": require("../src/components/Status/Status.stories.tsx"),
+    "./src/components/Item/Item.stories.tsx": require("../src/components/Item/Item.stories.tsx"),
+    "./src/components/LaundryCard/LaundryCard.stories.tsx": require("../src/components/LaundryCard/LaundryCard.stories.tsx"),
+    "./src/components/LaundryCard/LaundryCardcon.stories.tsx": require("../src/components/LaundryCard/LaundryCardcon.stories.tsx"),
+    "./src/components/Status/Status.stories.tsx": require("../src/components/Status/Status.stories.tsx"),
   };
 };
 
