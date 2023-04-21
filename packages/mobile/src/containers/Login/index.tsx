@@ -3,8 +3,8 @@ import {
   useAuthedUser,
   useLogin,
 } from '@laundry-app/shared';
+import {MobileRoutes} from '@laundry-app/shared/config/routes';
 import {LoginUserDto} from '@laundry-app/shared/openapi';
-import Routes from '@mobile/config/routes';
 import type {UnauthedStackParamList} from '@mobile/containers';
 import {generateTestId} from '@mobile/utils/helpers';
 import {genericStorage, StorageKeys} from '@mobile/utils/localStorage';
@@ -24,7 +24,7 @@ const formConfig = {
   resolver: loginSchemaResolver,
 };
 
-type Props = NativeStackScreenProps<UnauthedStackParamList, Routes.Login>;
+type Props = NativeStackScreenProps<UnauthedStackParamList, MobileRoutes.Login>;
 
 const LoginContainer: React.FC<Props> = ({navigation}) => {
   const {control, handleSubmit} = useForm<LoginUserDto>(formConfig);
@@ -39,7 +39,7 @@ const LoginContainer: React.FC<Props> = ({navigation}) => {
   };
 
   const onCreateAccount = () => {
-    navigation.replace(Routes.Registration);
+    navigation.replace(MobileRoutes.Registration);
   };
 
   return (

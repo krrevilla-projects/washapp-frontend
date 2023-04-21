@@ -1,10 +1,10 @@
 import {formatDate} from '@laundry-app/shared';
+import Status from '@laundry-app/shared/components/Status';
 import {
   LaundryJobResponse,
   LaundryJobStatus,
 } from '@laundry-app/shared/openapi';
 import {calculateTotalValue} from '@laundry-app/shared/utils/laundryJob';
-import Status from '@mobile/components/Status';
 import {Divider, Text} from 'native-base';
 import React from 'react';
 import {TouchableOpacity, View} from 'react-native';

@@ -1,7 +1,7 @@
 import {useUserLaundryJob} from '@laundry-app/shared';
+import {MobileRoutes} from '@laundry-app/shared/config/routes';
 import {LaundryJobResponse} from '@laundry-app/shared/openapi';
 import LaundryCard from '@mobile/components/LaundryCard';
-import Routes from '@mobile/config/routes';
 import type {AuthedStackParamList} from '@mobile/containers';
 import {generateTestId} from '@mobile/utils/helpers';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
@@ -13,7 +13,10 @@ import Animated, {FadeInRight} from 'react-native-reanimated';
 import {useDashboardStyle} from './Dashboard.styles';
 import DashboardEmpty from './DashboardEmpty';
 
-type Props = NativeStackScreenProps<AuthedStackParamList, Routes.Dashboard>;
+type Props = NativeStackScreenProps<
+  AuthedStackParamList,
+  MobileRoutes.Dashboard
+>;
 
 const keyExtractor = (item: LaundryJobResponse) => `${item.id}`;
 
@@ -23,7 +26,7 @@ const DashboardContainer: React.FC<Props> = ({navigation: {navigate}}) => {
 
   const onLaundryCardPress = useCallback(
     (laundryJobData: LaundryJobResponse) => {
-      navigate(Routes.Details, {
+      navigate(MobileRoutes.Details, {
         id: laundryJobData.id,
         preData: laundryJobData,
       });

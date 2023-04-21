@@ -1,6 +1,6 @@
 import {getLaundryJobControllerFindOne200Response} from '@laundry-app/shared/mocks/api-mock';
 import {calculateTotalValue} from '@laundry-app/shared/utils/laundryJob';
-import {render, screen} from '@mobile/utils/testUtils';
+import {render, screen} from '@laundry-app/shared/utils/testUtils';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';

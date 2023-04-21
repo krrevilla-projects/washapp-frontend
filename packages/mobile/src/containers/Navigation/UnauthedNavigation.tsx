@@ -1,4 +1,4 @@
-import routes from '@mobile/config/routes';
+import {MobileRoutes} from '@laundry-app/shared/config/routes';
 import {
   LoginContainer,
   OnboardingContainer,
@@ -11,9 +11,9 @@ import {
 import React from 'react';
 
 export type UnauthedStackParamList = {
-  [routes.Onboarding]: undefined;
-  [routes.Login]: undefined;
-  [routes.Registration]: undefined;
+  [MobileRoutes.Onboarding]: undefined;
+  [MobileRoutes.Login]: undefined;
+  [MobileRoutes.Registration]: undefined;
 };
 
 export const UnauthedStack =
@@ -31,16 +31,16 @@ const UnauthedNavigation: React.FC = () => {
   return (
     <UnauthedStack.Navigator screenOptions={screenOptions}>
       <UnauthedStack.Screen
-        name={routes.Onboarding}
+        name={MobileRoutes.Onboarding}
         component={OnboardingContainer}
       />
       <UnauthedStack.Screen
-        name={routes.Login}
+        name={MobileRoutes.Login}
         options={options}
         component={LoginContainer}
       />
       <UnauthedStack.Screen
-        name={routes.Registration}
+        name={MobileRoutes.Registration}
         options={options}
         component={RegistrationContainer}
       />

@@ -1,8 +1,12 @@
 import {useLaundryJob, useLaundryJobUpdateStatus} from '@laundry-app/shared';
+<<<<<<< Updated upstream
 import {JobItemsResponse, LaundryJobStatus} from '@laundry-app/shared/openapi';
+=======
+import {MobileRoutes} from '@laundry-app/shared/config/routes';
+import {LaundryJobStatus} from '@laundry-app/shared/openapi';
+>>>>>>> Stashed changes
 import {calculateTotalValue} from '@laundry-app/shared/utils/laundryJob';
 import Item from '@mobile/components/Item';
-import Routes from '@mobile/config/routes';
 import type {AuthedStackParamList} from '@mobile/containers';
 import {generateTestId} from '@mobile/utils/helpers';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
@@ -13,7 +17,7 @@ import Animated, {FadeInRight} from 'react-native-reanimated';
 
 import {useDetailStyles} from './Details.styles';
 
-type Props = NativeStackScreenProps<AuthedStackParamList, Routes.Details>;
+type Props = NativeStackScreenProps<AuthedStackParamList, MobileRoutes.Details>;
 
 const renderItem = (item: JobItemsResponse, index: number) => {
   const animation = FadeInRight.delay(index * 50).duration(500);

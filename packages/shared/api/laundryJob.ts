@@ -99,3 +99,23 @@ export const useLaundryJobUpdateStatus = () => {
 
   return mutation;
 };
+
+const fetchLaundryJobList = async ({ queryKey }: any) => {
+  const [_key, { accessToken }] = queryKey;
+  const config = generateAPIConfig({ accessToken: accessToken });
+
+  const laundryJobApi = new LaundryJobApi(config);
+  const response = await laundryJobApi.laundryJobControllerFindAll();
+
+  return response.data;
+};
+
+export const useLaundryJobs = () => {
+  const accessToken = useUserStore((state) => state.accessToken);
+  const query = useQuery({
+    queryKey: [endPoints.laundryJob, { accessToken }],
+    queryFn: fetchLaundryJobList,
+  });
+
+  return query;
+};

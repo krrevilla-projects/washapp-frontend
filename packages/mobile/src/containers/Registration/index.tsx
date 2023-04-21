@@ -3,8 +3,8 @@ import {
   useAuthedUser,
   useRegister,
 } from '@laundry-app/shared';
+import {MobileRoutes} from '@laundry-app/shared/config/routes';
 import {RegisterDto} from '@laundry-app/shared/openapi';
-import Routes from '@mobile/config/routes';
 import type {UnauthedStackParamList} from '@mobile/containers';
 import {generateTestId} from '@mobile/utils/helpers';
 import {genericStorage, StorageKeys} from '@mobile/utils/localStorage';
@@ -30,7 +30,7 @@ const formConfig = {
 
 type Props = NativeStackScreenProps<
   UnauthedStackParamList,
-  Routes.Registration
+  MobileRoutes.Registration
 >;
 
 const RegistrationContainer: React.FC<Props> = () => {

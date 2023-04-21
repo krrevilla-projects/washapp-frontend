@@ -1,5 +1,10 @@
 import Navigation from '@mobile/containers/Navigation';
-import {cleanup, fireEvent, render, screen} from '@mobile/utils/testUtils';
+import {
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+} from '@laundry-app/shared/utils/testUtils';
 import React from 'react';
 
 describe('<OnboardingContainer />', () => {

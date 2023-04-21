@@ -1,3 +1,4 @@
+import path from "path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import { viteCommonjs, esbuildCommonjs } from "@originjs/vite-plugin-commonjs";
@@ -20,6 +21,7 @@ export default defineConfig({
     extensions: [".web.tsx", ".web.jsx", ".web.js", ".tsx", ".ts", ".js"],
     alias: {
       "react-native": "react-native-web",
+      "@web": path.resolve(__dirname, "./src"),
     },
   },
   plugins: [viteCommonjs(), react()],

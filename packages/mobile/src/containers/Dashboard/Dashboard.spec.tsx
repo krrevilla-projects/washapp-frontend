@@ -1,4 +1,4 @@
-import {fireEvent, render, screen} from '@mobile/utils/testUtils';
+import {fireEvent, render, screen} from '@laundry-app/shared/utils/testUtils';
 import React from 'react';
 
 import DashboardEmpty from './DashboardEmpty';

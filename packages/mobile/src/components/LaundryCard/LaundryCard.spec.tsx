@@ -2,7 +2,12 @@ import {formatDate} from '@laundry-app/shared';
 import {getLaundryJobControllerFindOne200Response} from '@laundry-app/shared/mocks/api-mock';
 import {LaundryJobStatus} from '@laundry-app/shared/openapi';
 import {calculateTotalValue} from '@laundry-app/shared/utils/laundryJob';
-import {cleanup, fireEvent, render, screen} from '@mobile/utils/testUtils';
+import {
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+} from '@laundry-app/shared/utils/testUtils';
 import React from 'react';
 
 import LaundryCard from '.';

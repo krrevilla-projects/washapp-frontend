@@ -1,10 +1,10 @@
-import {LaundryJobStatus} from '@laundry-app/shared/openapi';
-import {render, screen} from '@mobile/utils/testUtils';
-import React from 'react';
+import { LaundryJobStatus } from "@laundry-app/shared/openapi";
+import { render, screen } from "@laundry-app/shared/utils/testUtils";
+import React from "react";
 
-import Status from '.';
+import Status from ".";
 
-describe('<Status />', () => {
+describe("<Status />", () => {
   it(`should display ${LaundryJobStatus.Pending}`, () => {
     render(<Status status={LaundryJobStatus.Pending} />);
     expect(screen.getByText(LaundryJobStatus.Pending)).toBeTruthy();

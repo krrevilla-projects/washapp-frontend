@@ -1,5 +1,5 @@
+import {MobileRoutes} from '@laundry-app/shared/config/routes';
 import {LaundryJobResponse} from '@laundry-app/shared/openapi';
-import {Routes} from '@mobile/config/routes';
 import {
   DashboardContainer,
   DashboardHeader,
@@ -13,8 +13,8 @@ import {
 import React from 'react';
 
 export type AuthedStackParamList = {
-  [Routes.Dashboard]: undefined;
-  [Routes.Details]: {id: number; preData?: LaundryJobResponse};
+  [MobileRoutes.Dashboard]: undefined;
+  [MobileRoutes.Details]: {id: number; preData?: LaundryJobResponse};
 };
 
 export const AuthedStack = createNativeStackNavigator<AuthedStackParamList>();
@@ -29,12 +29,12 @@ const AuthedNavigation: React.FC = () => {
   return (
     <AuthedStack.Navigator>
       <AuthedStack.Screen
-        name={Routes.Dashboard}
+        name={MobileRoutes.Dashboard}
         options={{header: dashboardHeader}}
         component={DashboardContainer}
       />
       <AuthedStack.Screen
-        name={Routes.Details}
+        name={MobileRoutes.Details}
         options={{header: detailsHeader}}
         component={DetailsContainer}
       />

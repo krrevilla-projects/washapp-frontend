@@ -1,4 +1,4 @@
-import {render, screen} from '@mobile/utils/testUtils';
+import {render, screen} from '@laundry-app/shared/utils/testUtils';
 import React from 'react';
 
 import Item, {ItemProps} from '.';

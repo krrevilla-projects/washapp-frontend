@@ -9,7 +9,7 @@ import { faker } from "@faker-js/faker";
 
 faker.seed(1);
 
-const baseURL = "https://laundry-service-api.onrender.com";
+const baseURL = "http://localhost:3000";
 const MAX_ARRAY_LENGTH = 5;
 
 let i = 0;
@@ -26,16 +26,12 @@ export const handlers = [
       [ctx.status(200), ctx.json(getMenuControllerFindAll200Response())],
     ];
 
-    ctx.delay(5000);
-
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.post(`${baseURL}/menu`, (_, res, ctx) => {
     const resultArray = [
       [ctx.status(200), ctx.json(getMenuControllerCreateOne200Response())],
     ];
-
-    ctx.delay(5000);
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -44,16 +40,12 @@ export const handlers = [
       [ctx.status(200), ctx.json(getMenuControllerFindOne200Response())],
     ];
 
-    ctx.delay(5000);
-
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.patch(`${baseURL}/menu/:id`, (_, res, ctx) => {
     const resultArray = [
       [ctx.status(200), ctx.json(getMenuControllerUpdateOne200Response())],
     ];
-
-    ctx.delay(5000);
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -62,16 +54,12 @@ export const handlers = [
       [ctx.status(200), ctx.json(getAuthControllerLogin200Response())],
     ];
 
-    ctx.delay(5000);
-
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.post(`${baseURL}/auth/register`, (_, res, ctx) => {
     const resultArray = [
       [ctx.status(200), ctx.json(getAuthControllerRegister200Response())],
     ];
-
-    ctx.delay(5000);
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -80,16 +68,12 @@ export const handlers = [
       [ctx.status(200), ctx.json(getAddressControllerFindByUser200Response())],
     ];
 
-    ctx.delay(5000);
-
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.post(`${baseURL}/address`, (_, res, ctx) => {
     const resultArray = [
       [ctx.status(200), ctx.json(getAddressControllerCreateOne200Response())],
     ];
-
-    ctx.delay(5000);
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -98,14 +82,10 @@ export const handlers = [
       [ctx.status(200), ctx.json(getAddressControllerUpdateOne200Response())],
     ];
 
-    ctx.delay(5000);
-
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.delete(`${baseURL}/address/:id`, (_, res, ctx) => {
     const resultArray = [[ctx.status(200), ctx.json(null)]];
-
-    ctx.delay(5000);
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -113,8 +93,6 @@ export const handlers = [
     const resultArray = [
       [ctx.status(200), ctx.json(getLaundryJobControllerFindAll200Response())],
     ];
-
-    ctx.delay(5000);
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -126,16 +104,12 @@ export const handlers = [
       ],
     ];
 
-    ctx.delay(5000);
-
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.get(`${baseURL}/laundry-job/:id`, (_, res, ctx) => {
     const resultArray = [
       [ctx.status(200), ctx.json(getLaundryJobControllerFindOne200Response())],
     ];
-
-    ctx.delay(5000);
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -147,8 +121,6 @@ export const handlers = [
       ],
     ];
 
-    ctx.delay(5000);
-
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.get(`${baseURL}/laundry-job/user/:id`, (_, res, ctx) => {
@@ -158,8 +130,6 @@ export const handlers = [
         ctx.json(getLaundryJobControllerFindByUser200Response()),
       ],
     ];
-
-    ctx.delay(5000);
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -171,8 +141,6 @@ export const handlers = [
       ],
     ];
 
-    ctx.delay(5000);
-
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.patch(`${baseURL}/job-items/:id`, (_, res, ctx) => {
@@ -180,14 +148,10 @@ export const handlers = [
       [ctx.status(200), ctx.json(getJobItemsControllerUpdateOne200Response())],
     ];
 
-    ctx.delay(5000);
-
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.delete(`${baseURL}/job-items/:id`, (_, res, ctx) => {
     const resultArray = [[ctx.status(200), ctx.json(null)]];
-
-    ctx.delay(5000);
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -196,16 +160,12 @@ export const handlers = [
       [ctx.status(200), ctx.json(getJobItemsControllerCreateOne200Response())],
     ];
 
-    ctx.delay(5000);
-
     return res(...resultArray[next() % resultArray.length]);
   }),
   rest.get(`${baseURL}/user/me/profile`, (_, res, ctx) => {
     const resultArray = [
       [ctx.status(200), ctx.json(getUserControllerFindOne200Response())],
     ];
-
-    ctx.delay(5000);
 
     return res(...resultArray[next() % resultArray.length]);
   }),
@@ -217,19 +177,21 @@ export const handlers = [
       ],
     ];
 
-    ctx.delay(5000);
-
     return res(...resultArray[next() % resultArray.length]);
   }),
 ];
 
 export function getMenuControllerFindAll200Response() {
-  return [...new Array(MAX_ARRAY_LENGTH).keys()].map((_) => ({
+  return [
+    ...new Array(
+      faker.datatype.number({ min: 1, max: MAX_ARRAY_LENGTH })
+    ).keys(),
+  ].map((_) => ({
     id: 1,
     name: "Laundry Wash",
     price: 120,
-    createdAt: "2022-09-30T21:44:55.451Z",
-    updatedAt: "2023-02-16T22:27:41.838Z",
+    createdAt: "2022-06-30T08:46:57.941Z",
+    updatedAt: "2022-10-01T04:37:06.695Z",
   }));
 }
 
@@ -238,8 +200,8 @@ export function getMenuControllerCreateOne200Response() {
     id: 1,
     name: "Laundry Wash",
     price: 120,
-    createdAt: "2022-09-30T21:44:55.451Z",
-    updatedAt: "2023-02-16T22:27:41.838Z",
+    createdAt: "2022-06-30T08:46:57.941Z",
+    updatedAt: "2022-10-01T04:37:06.695Z",
   };
 }
 
@@ -248,8 +210,8 @@ export function getMenuControllerFindOne200Response() {
     id: 1,
     name: "Laundry Wash",
     price: 120,
-    createdAt: "2022-09-30T21:44:55.451Z",
-    updatedAt: "2023-02-16T22:27:41.838Z",
+    createdAt: "2022-06-30T08:46:57.941Z",
+    updatedAt: "2022-10-01T04:37:06.695Z",
   };
 }
 
@@ -258,8 +220,8 @@ export function getMenuControllerUpdateOne200Response() {
     id: 1,
     name: "Laundry Wash",
     price: 120,
-    createdAt: "2022-09-30T21:44:55.451Z",
-    updatedAt: "2023-02-16T22:27:41.838Z",
+    createdAt: "2022-06-30T08:46:57.941Z",
+    updatedAt: "2022-10-01T04:37:06.695Z",
   };
 }
 
@@ -278,11 +240,15 @@ export function getAuthControllerRegister200Response() {
 }
 
 export function getAddressControllerFindByUser200Response() {
-  return [...new Array(MAX_ARRAY_LENGTH).keys()].map((_) => ({
+  return [
+    ...new Array(
+      faker.datatype.number({ min: 1, max: MAX_ARRAY_LENGTH })
+    ).keys(),
+  ].map((_) => ({
     id: 1,
     address: "Manila, Philippines",
-    createdAt: "2022-10-10T07:04:39.751Z",
-    updatedAt: "2022-04-05T07:06:01.358Z",
+    createdAt: "2022-06-15T15:58:16.067Z",
+    updatedAt: "2023-04-02T03:13:28.896Z",
   }));
 }
 
@@ -290,8 +256,8 @@ export function getAddressControllerCreateOne200Response() {
   return {
     id: 1,
     address: "Manila, Philippines",
-    createdAt: "2022-10-10T07:04:39.751Z",
-    updatedAt: "2022-04-05T07:06:01.358Z",
+    createdAt: "2022-06-15T15:58:16.067Z",
+    updatedAt: "2023-04-02T03:13:28.896Z",
   };
 }
 
@@ -299,18 +265,22 @@ export function getAddressControllerUpdateOne200Response() {
   return {
     id: 1,
     address: "Manila, Philippines",
-    createdAt: "2022-10-10T07:04:39.751Z",
-    updatedAt: "2022-04-05T07:06:01.358Z",
+    createdAt: "2022-06-15T15:58:16.067Z",
+    updatedAt: "2023-04-02T03:13:28.896Z",
   };
 }
 
 export function getLaundryJobControllerFindAll200Response() {
-  return [...new Array(MAX_ARRAY_LENGTH).keys()].map((_) => ({
+  return [
+    ...new Array(
+      faker.datatype.number({ min: 1, max: MAX_ARRAY_LENGTH })
+    ).keys(),
+  ].map((_) => ({
     id: 1,
     userId: 1,
     status: "pending",
-    createdAt: "2022-08-07T13:33:17.216Z",
-    updatedAt: "2022-05-01T04:36:15.124Z",
+    createdAt: "2022-11-22T17:37:59.252Z",
+    updatedAt: "2022-06-30T14:28:42.548Z",
     items: [
       {
         id: 1,
@@ -321,11 +291,11 @@ export function getLaundryJobControllerFindAll200Response() {
           id: 1,
           name: "Laundry Wash",
           price: 120,
-          createdAt: "2022-09-30T21:44:55.451Z",
-          updatedAt: "2023-02-16T22:27:41.838Z",
+          createdAt: "2022-06-30T08:46:57.941Z",
+          updatedAt: "2022-10-01T04:37:06.695Z",
         },
-        createdAt: "2022-08-09T06:43:05.436Z",
-        updatedAt: "2022-06-01T01:15:24.402Z",
+        createdAt: "2023-04-16T19:34:13.579Z",
+        updatedAt: "2023-02-27T15:32:22.107Z",
       },
       {
         id: 2,
@@ -336,11 +306,11 @@ export function getLaundryJobControllerFindAll200Response() {
           id: 2,
           name: "Hand Wash",
           price: 10,
-          createdAt: "2022-09-08T04:27:20.539Z",
-          updatedAt: "2023-01-29T06:11:27.772Z",
+          createdAt: "2023-02-03T08:49:22.559Z",
+          updatedAt: "2022-10-15T11:12:14.209Z",
         },
-        createdAt: "2023-01-14T12:06:56.264Z",
-        updatedAt: "2023-01-05T10:12:36.104Z",
+        createdAt: "2022-07-31T11:03:19.339Z",
+        updatedAt: "2022-12-23T14:08:38.343Z",
       },
       {
         id: 3,
@@ -351,11 +321,11 @@ export function getLaundryJobControllerFindAll200Response() {
           id: 3,
           name: "Dry Clean",
           price: 200,
-          createdAt: "2022-04-28T10:25:20.089Z",
-          updatedAt: "2022-05-22T21:12:07.370Z",
+          createdAt: "2022-10-30T21:56:48.124Z",
+          updatedAt: "2022-06-12T10:03:45.537Z",
         },
-        createdAt: "2022-04-15T17:03:21.290Z",
-        updatedAt: "2022-03-31T22:43:21.777Z",
+        createdAt: "2022-06-30T12:46:28.892Z",
+        updatedAt: "2022-10-04T04:43:44.169Z",
       },
       {
         id: 4,
@@ -366,11 +336,11 @@ export function getLaundryJobControllerFindAll200Response() {
           id: 4,
           name: "Dryer",
           price: 110,
-          createdAt: "2022-04-10T11:22:28.082Z",
-          updatedAt: "2022-08-30T12:19:57.225Z",
+          createdAt: "2023-02-04T15:32:21.272Z",
+          updatedAt: "2022-08-31T07:07:48.865Z",
         },
-        createdAt: "2022-07-25T00:40:25.342Z",
-        updatedAt: "2022-11-20T01:00:24.732Z",
+        createdAt: "2023-04-13T18:17:02.651Z",
+        updatedAt: "2023-03-23T23:08:03.362Z",
       },
     ],
   }));
@@ -381,8 +351,8 @@ export function getLaundryJobControllerCreateOne200Response() {
     id: 1,
     userId: 1,
     status: "pending",
-    createdAt: "2022-08-07T13:33:17.216Z",
-    updatedAt: "2022-05-01T04:36:15.124Z",
+    createdAt: "2022-11-22T17:37:59.252Z",
+    updatedAt: "2022-06-30T14:28:42.548Z",
     items: [
       {
         id: 1,
@@ -393,11 +363,11 @@ export function getLaundryJobControllerCreateOne200Response() {
           id: 1,
           name: "Laundry Wash",
           price: 120,
-          createdAt: "2022-09-30T21:44:55.451Z",
-          updatedAt: "2023-02-16T22:27:41.838Z",
+          createdAt: "2022-06-30T08:46:57.941Z",
+          updatedAt: "2022-10-01T04:37:06.695Z",
         },
-        createdAt: "2022-08-09T06:43:05.436Z",
-        updatedAt: "2022-06-01T01:15:24.402Z",
+        createdAt: "2023-04-16T19:34:13.579Z",
+        updatedAt: "2023-02-27T15:32:22.107Z",
       },
       {
         id: 2,
@@ -408,11 +378,11 @@ export function getLaundryJobControllerCreateOne200Response() {
           id: 2,
           name: "Hand Wash",
           price: 10,
-          createdAt: "2022-09-08T04:27:20.539Z",
-          updatedAt: "2023-01-29T06:11:27.772Z",
+          createdAt: "2023-02-03T08:49:22.559Z",
+          updatedAt: "2022-10-15T11:12:14.209Z",
         },
-        createdAt: "2023-01-14T12:06:56.264Z",
-        updatedAt: "2023-01-05T10:12:36.104Z",
+        createdAt: "2022-07-31T11:03:19.339Z",
+        updatedAt: "2022-12-23T14:08:38.343Z",
       },
       {
         id: 3,
@@ -423,11 +393,11 @@ export function getLaundryJobControllerCreateOne200Response() {
           id: 3,
           name: "Dry Clean",
           price: 200,
-          createdAt: "2022-04-28T10:25:20.089Z",
-          updatedAt: "2022-05-22T21:12:07.370Z",
+          createdAt: "2022-10-30T21:56:48.124Z",
+          updatedAt: "2022-06-12T10:03:45.537Z",
         },
-        createdAt: "2022-04-15T17:03:21.290Z",
-        updatedAt: "2022-03-31T22:43:21.777Z",
+        createdAt: "2022-06-30T12:46:28.892Z",
+        updatedAt: "2022-10-04T04:43:44.169Z",
       },
       {
         id: 4,
@@ -438,11 +408,11 @@ export function getLaundryJobControllerCreateOne200Response() {
           id: 4,
           name: "Dryer",
           price: 110,
-          createdAt: "2022-04-10T11:22:28.082Z",
-          updatedAt: "2022-08-30T12:19:57.225Z",
+          createdAt: "2023-02-04T15:32:21.272Z",
+          updatedAt: "2022-08-31T07:07:48.865Z",
         },
-        createdAt: "2022-07-25T00:40:25.342Z",
-        updatedAt: "2022-11-20T01:00:24.732Z",
+        createdAt: "2023-04-13T18:17:02.651Z",
+        updatedAt: "2023-03-23T23:08:03.362Z",
       },
     ],
   };
@@ -453,8 +423,8 @@ export function getLaundryJobControllerFindOne200Response() {
     id: 1,
     userId: 1,
     status: "pending",
-    createdAt: "2022-08-07T13:33:17.216Z",
-    updatedAt: "2022-05-01T04:36:15.124Z",
+    createdAt: "2022-11-22T17:37:59.252Z",
+    updatedAt: "2022-06-30T14:28:42.548Z",
     items: [
       {
         id: 1,
@@ -465,11 +435,11 @@ export function getLaundryJobControllerFindOne200Response() {
           id: 1,
           name: "Laundry Wash",
           price: 120,
-          createdAt: "2022-09-30T21:44:55.451Z",
-          updatedAt: "2023-02-16T22:27:41.838Z",
+          createdAt: "2022-06-30T08:46:57.941Z",
+          updatedAt: "2022-10-01T04:37:06.695Z",
         },
-        createdAt: "2022-08-09T06:43:05.436Z",
-        updatedAt: "2022-06-01T01:15:24.402Z",
+        createdAt: "2023-04-16T19:34:13.579Z",
+        updatedAt: "2023-02-27T15:32:22.107Z",
       },
       {
         id: 2,
@@ -480,11 +450,11 @@ export function getLaundryJobControllerFindOne200Response() {
           id: 2,
           name: "Hand Wash",
           price: 10,
-          createdAt: "2022-09-08T04:27:20.539Z",
-          updatedAt: "2023-01-29T06:11:27.772Z",
+          createdAt: "2023-02-03T08:49:22.559Z",
+          updatedAt: "2022-10-15T11:12:14.209Z",
         },
-        createdAt: "2023-01-14T12:06:56.264Z",
-        updatedAt: "2023-01-05T10:12:36.104Z",
+        createdAt: "2022-07-31T11:03:19.339Z",
+        updatedAt: "2022-12-23T14:08:38.343Z",
       },
       {
         id: 3,
@@ -495,11 +465,11 @@ export function getLaundryJobControllerFindOne200Response() {
           id: 3,
           name: "Dry Clean",
           price: 200,
-          createdAt: "2022-04-28T10:25:20.089Z",
-          updatedAt: "2022-05-22T21:12:07.370Z",
+          createdAt: "2022-10-30T21:56:48.124Z",
+          updatedAt: "2022-06-12T10:03:45.537Z",
         },
-        createdAt: "2022-04-15T17:03:21.290Z",
-        updatedAt: "2022-03-31T22:43:21.777Z",
+        createdAt: "2022-06-30T12:46:28.892Z",
+        updatedAt: "2022-10-04T04:43:44.169Z",
       },
       {
         id: 4,
@@ -510,11 +480,11 @@ export function getLaundryJobControllerFindOne200Response() {
           id: 4,
           name: "Dryer",
           price: 110,
-          createdAt: "2022-04-10T11:22:28.082Z",
-          updatedAt: "2022-08-30T12:19:57.225Z",
+          createdAt: "2023-02-04T15:32:21.272Z",
+          updatedAt: "2022-08-31T07:07:48.865Z",
         },
-        createdAt: "2022-07-25T00:40:25.342Z",
-        updatedAt: "2022-11-20T01:00:24.732Z",
+        createdAt: "2023-04-13T18:17:02.651Z",
+        updatedAt: "2023-03-23T23:08:03.362Z",
       },
     ],
   };
@@ -525,8 +495,8 @@ export function getLaundryJobControllerUpdateOne200Response() {
     id: 1,
     userId: 1,
     status: "pending",
-    createdAt: "2022-08-07T13:33:17.216Z",
-    updatedAt: "2022-05-01T04:36:15.124Z",
+    createdAt: "2022-11-22T17:37:59.252Z",
+    updatedAt: "2022-06-30T14:28:42.548Z",
     items: [
       {
         id: 1,
@@ -537,11 +507,11 @@ export function getLaundryJobControllerUpdateOne200Response() {
           id: 1,
           name: "Laundry Wash",
           price: 120,
-          createdAt: "2022-09-30T21:44:55.451Z",
-          updatedAt: "2023-02-16T22:27:41.838Z",
+          createdAt: "2022-06-30T08:46:57.941Z",
+          updatedAt: "2022-10-01T04:37:06.695Z",
         },
-        createdAt: "2022-08-09T06:43:05.436Z",
-        updatedAt: "2022-06-01T01:15:24.402Z",
+        createdAt: "2023-04-16T19:34:13.579Z",
+        updatedAt: "2023-02-27T15:32:22.107Z",
       },
       {
         id: 2,
@@ -552,11 +522,11 @@ export function getLaundryJobControllerUpdateOne200Response() {
           id: 2,
           name: "Hand Wash",
           price: 10,
-          createdAt: "2022-09-08T04:27:20.539Z",
-          updatedAt: "2023-01-29T06:11:27.772Z",
+          createdAt: "2023-02-03T08:49:22.559Z",
+          updatedAt: "2022-10-15T11:12:14.209Z",
         },
-        createdAt: "2023-01-14T12:06:56.264Z",
-        updatedAt: "2023-01-05T10:12:36.104Z",
+        createdAt: "2022-07-31T11:03:19.339Z",
+        updatedAt: "2022-12-23T14:08:38.343Z",
       },
       {
         id: 3,
@@ -567,11 +537,11 @@ export function getLaundryJobControllerUpdateOne200Response() {
           id: 3,
           name: "Dry Clean",
           price: 200,
-          createdAt: "2022-04-28T10:25:20.089Z",
-          updatedAt: "2022-05-22T21:12:07.370Z",
+          createdAt: "2022-10-30T21:56:48.124Z",
+          updatedAt: "2022-06-12T10:03:45.537Z",
         },
-        createdAt: "2022-04-15T17:03:21.290Z",
-        updatedAt: "2022-03-31T22:43:21.777Z",
+        createdAt: "2022-06-30T12:46:28.892Z",
+        updatedAt: "2022-10-04T04:43:44.169Z",
       },
       {
         id: 4,
@@ -582,23 +552,27 @@ export function getLaundryJobControllerUpdateOne200Response() {
           id: 4,
           name: "Dryer",
           price: 110,
-          createdAt: "2022-04-10T11:22:28.082Z",
-          updatedAt: "2022-08-30T12:19:57.225Z",
+          createdAt: "2023-02-04T15:32:21.272Z",
+          updatedAt: "2022-08-31T07:07:48.865Z",
         },
-        createdAt: "2022-07-25T00:40:25.342Z",
-        updatedAt: "2022-11-20T01:00:24.732Z",
+        createdAt: "2023-04-13T18:17:02.651Z",
+        updatedAt: "2023-03-23T23:08:03.362Z",
       },
     ],
   };
 }
 
 export function getLaundryJobControllerFindByUser200Response() {
-  return [...new Array(MAX_ARRAY_LENGTH).keys()].map((_) => ({
+  return [
+    ...new Array(
+      faker.datatype.number({ min: 1, max: MAX_ARRAY_LENGTH })
+    ).keys(),
+  ].map((_) => ({
     id: 1,
     userId: 1,
     status: "pending",
-    createdAt: "2022-08-07T13:33:17.216Z",
-    updatedAt: "2022-05-01T04:36:15.124Z",
+    createdAt: "2022-11-22T17:37:59.252Z",
+    updatedAt: "2022-06-30T14:28:42.548Z",
     items: [
       {
         id: 1,
@@ -609,11 +583,11 @@ export function getLaundryJobControllerFindByUser200Response() {
           id: 1,
           name: "Laundry Wash",
           price: 120,
-          createdAt: "2022-09-30T21:44:55.451Z",
-          updatedAt: "2023-02-16T22:27:41.838Z",
+          createdAt: "2022-06-30T08:46:57.941Z",
+          updatedAt: "2022-10-01T04:37:06.695Z",
         },
-        createdAt: "2022-08-09T06:43:05.436Z",
-        updatedAt: "2022-06-01T01:15:24.402Z",
+        createdAt: "2023-04-16T19:34:13.579Z",
+        updatedAt: "2023-02-27T15:32:22.107Z",
       },
       {
         id: 2,
@@ -624,11 +598,11 @@ export function getLaundryJobControllerFindByUser200Response() {
           id: 2,
           name: "Hand Wash",
           price: 10,
-          createdAt: "2022-09-08T04:27:20.539Z",
-          updatedAt: "2023-01-29T06:11:27.772Z",
+          createdAt: "2023-02-03T08:49:22.559Z",
+          updatedAt: "2022-10-15T11:12:14.209Z",
         },
-        createdAt: "2023-01-14T12:06:56.264Z",
-        updatedAt: "2023-01-05T10:12:36.104Z",
+        createdAt: "2022-07-31T11:03:19.339Z",
+        updatedAt: "2022-12-23T14:08:38.343Z",
       },
       {
         id: 3,
@@ -639,11 +613,11 @@ export function getLaundryJobControllerFindByUser200Response() {
           id: 3,
           name: "Dry Clean",
           price: 200,
-          createdAt: "2022-04-28T10:25:20.089Z",
-          updatedAt: "2022-05-22T21:12:07.370Z",
+          createdAt: "2022-10-30T21:56:48.124Z",
+          updatedAt: "2022-06-12T10:03:45.537Z",
         },
-        createdAt: "2022-04-15T17:03:21.290Z",
-        updatedAt: "2022-03-31T22:43:21.777Z",
+        createdAt: "2022-06-30T12:46:28.892Z",
+        updatedAt: "2022-10-04T04:43:44.169Z",
       },
       {
         id: 4,
@@ -654,18 +628,22 @@ export function getLaundryJobControllerFindByUser200Response() {
           id: 4,
           name: "Dryer",
           price: 110,
-          createdAt: "2022-04-10T11:22:28.082Z",
-          updatedAt: "2022-08-30T12:19:57.225Z",
+          createdAt: "2023-02-04T15:32:21.272Z",
+          updatedAt: "2022-08-31T07:07:48.865Z",
         },
-        createdAt: "2022-07-25T00:40:25.342Z",
-        updatedAt: "2022-11-20T01:00:24.732Z",
+        createdAt: "2023-04-13T18:17:02.651Z",
+        updatedAt: "2023-03-23T23:08:03.362Z",
       },
     ],
   }));
 }
 
 export function getJobItemsControllerFindByJobId200Response() {
-  return [...new Array(MAX_ARRAY_LENGTH).keys()].map((_) => ({
+  return [
+    ...new Array(
+      faker.datatype.number({ min: 1, max: MAX_ARRAY_LENGTH })
+    ).keys(),
+  ].map((_) => ({
     id: 1,
     jobId: 1,
     itemId: 1,
@@ -673,12 +651,12 @@ export function getJobItemsControllerFindByJobId200Response() {
       id: 1,
       name: "Laundry Wash",
       price: 120,
-      createdAt: "2022-09-30T21:44:55.451Z",
-      updatedAt: "2023-02-16T22:27:41.838Z",
+      createdAt: "2022-06-30T08:46:57.941Z",
+      updatedAt: "2022-10-01T04:37:06.695Z",
     },
     quantity: 1,
-    createdAt: "2022-08-09T06:43:05.436Z",
-    updatedAt: "2022-06-01T01:15:24.402Z",
+    createdAt: "2023-04-16T19:34:13.579Z",
+    updatedAt: "2023-02-27T15:32:22.107Z",
   }));
 }
 
@@ -691,12 +669,12 @@ export function getJobItemsControllerUpdateOne200Response() {
       id: 1,
       name: "Laundry Wash",
       price: 120,
-      createdAt: "2022-09-30T21:44:55.451Z",
-      updatedAt: "2023-02-16T22:27:41.838Z",
+      createdAt: "2022-06-30T08:46:57.941Z",
+      updatedAt: "2022-10-01T04:37:06.695Z",
     },
     quantity: 1,
-    createdAt: "2022-08-09T06:43:05.436Z",
-    updatedAt: "2022-06-01T01:15:24.402Z",
+    createdAt: "2023-04-16T19:34:13.579Z",
+    updatedAt: "2023-02-27T15:32:22.107Z",
   };
 }
 
@@ -709,36 +687,40 @@ export function getJobItemsControllerCreateOne200Response() {
       id: 1,
       name: "Laundry Wash",
       price: 120,
-      createdAt: "2022-09-30T21:44:55.451Z",
-      updatedAt: "2023-02-16T22:27:41.838Z",
+      createdAt: "2022-06-30T08:46:57.941Z",
+      updatedAt: "2022-10-01T04:37:06.695Z",
     },
     quantity: 1,
-    createdAt: "2022-08-09T06:43:05.436Z",
-    updatedAt: "2022-06-01T01:15:24.402Z",
+    createdAt: "2023-04-16T19:34:13.579Z",
+    updatedAt: "2023-02-27T15:32:22.107Z",
   };
 }
 
 export function getUserControllerFindOne200Response() {
   return {
     id: 1,
-    firstName: "Jeffery Pagac",
-    lastName: "Frank Green",
-    contact: "639778170022",
-    email: "Lindsey52@yahoo.com",
-    isVerified: true,
+    firstName: "Theresa Morar",
+    lastName: "Harold Farrell",
+    contact: "639471433814",
+    email: "Carole20@gmail.com",
+    isVerified: faker.datatype.boolean(),
     userType: "regular",
-    createdAt: "2022-12-18T16:25:00.130Z",
-    updatedAt: "2022-12-16T01:47:01.939Z",
+    createdAt: "2022-07-20T02:06:36.496Z",
+    updatedAt: "2022-08-20T07:19:19.414Z",
   };
 }
 
 export function getUserControllerFindMyLaundryJob200Response() {
-  return [...new Array(MAX_ARRAY_LENGTH).keys()].map((_) => ({
+  return [
+    ...new Array(
+      faker.datatype.number({ min: 1, max: MAX_ARRAY_LENGTH })
+    ).keys(),
+  ].map((_) => ({
     id: 1,
     userId: 1,
     status: "pending",
-    createdAt: "2022-08-07T13:33:17.216Z",
-    updatedAt: "2022-05-01T04:36:15.124Z",
+    createdAt: "2022-11-22T17:37:59.252Z",
+    updatedAt: "2022-06-30T14:28:42.548Z",
     items: [
       {
         id: 1,
@@ -749,11 +731,11 @@ export function getUserControllerFindMyLaundryJob200Response() {
           id: 1,
           name: "Laundry Wash",
           price: 120,
-          createdAt: "2022-09-30T21:44:55.451Z",
-          updatedAt: "2023-02-16T22:27:41.838Z",
+          createdAt: "2022-06-30T08:46:57.941Z",
+          updatedAt: "2022-10-01T04:37:06.695Z",
         },
-        createdAt: "2022-08-09T06:43:05.436Z",
-        updatedAt: "2022-06-01T01:15:24.402Z",
+        createdAt: "2023-04-16T19:34:13.579Z",
+        updatedAt: "2023-02-27T15:32:22.107Z",
       },
       {
         id: 2,
@@ -764,11 +746,11 @@ export function getUserControllerFindMyLaundryJob200Response() {
           id: 2,
           name: "Hand Wash",
           price: 10,
-          createdAt: "2022-09-08T04:27:20.539Z",
-          updatedAt: "2023-01-29T06:11:27.772Z",
+          createdAt: "2023-02-03T08:49:22.559Z",
+          updatedAt: "2022-10-15T11:12:14.209Z",
         },
-        createdAt: "2023-01-14T12:06:56.264Z",
-        updatedAt: "2023-01-05T10:12:36.104Z",
+        createdAt: "2022-07-31T11:03:19.339Z",
+        updatedAt: "2022-12-23T14:08:38.343Z",
       },
       {
         id: 3,
@@ -779,11 +761,11 @@ export function getUserControllerFindMyLaundryJob200Response() {
           id: 3,
           name: "Dry Clean",
           price: 200,
-          createdAt: "2022-04-28T10:25:20.089Z",
-          updatedAt: "2022-05-22T21:12:07.370Z",
+          createdAt: "2022-10-30T21:56:48.124Z",
+          updatedAt: "2022-06-12T10:03:45.537Z",
         },
-        createdAt: "2022-04-15T17:03:21.290Z",
-        updatedAt: "2022-03-31T22:43:21.777Z",
+        createdAt: "2022-06-30T12:46:28.892Z",
+        updatedAt: "2022-10-04T04:43:44.169Z",
       },
       {
         id: 4,
@@ -794,11 +776,11 @@ export function getUserControllerFindMyLaundryJob200Response() {
           id: 4,
           name: "Dryer",
           price: 110,
-          createdAt: "2022-04-10T11:22:28.082Z",
-          updatedAt: "2022-08-30T12:19:57.225Z",
+          createdAt: "2023-02-04T15:32:21.272Z",
+          updatedAt: "2022-08-31T07:07:48.865Z",
         },
-        createdAt: "2022-07-25T00:40:25.342Z",
-        updatedAt: "2022-11-20T01:00:24.732Z",
+        createdAt: "2023-04-13T18:17:02.651Z",
+        updatedAt: "2023-03-23T23:08:03.362Z",
       },
     ],
   }));
