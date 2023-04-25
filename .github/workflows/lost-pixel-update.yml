@@ -39,8 +39,12 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         if: ${{ failure() && steps.lp.conclusion == 'failure' }}
         with:
-          commit-message: update lost-pixel baselines
-          delete-branch: true
+          commit-message: Update Lost-Pixel baselines
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          signoff: false
           branch: "lost-pixel-baselines/${{ github.ref_name }}"
+          delete-branch: true
           title: "Lost Pixel updating baselines - ${{ github.ref_name }}"
           body: Automated baseline update PR - lost pixel
+          draft: false
