@@ -8,4 +8,5 @@ export const config: CustomProjectConfig = {
   imagePathCurrent: './packages/mobile/current-images',
   imagePathDifference: './packages/mobile/difference-images',
   generateOnly: true,
+  failOnDifference: true,
 };
