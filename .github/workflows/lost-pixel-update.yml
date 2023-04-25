@@ -2,6 +2,10 @@ name: Lost Pixel Update
 
 on: [workflow_dispatch]
 
+permissions:
+  pull-requests: write
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
