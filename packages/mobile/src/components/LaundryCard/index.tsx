@@ -31,7 +31,6 @@ const LaundryCard: React.FC<Props> = ({data, onPress}) => {
         <View style={styles.container}>
           <LaundryCardIcon status={data.status as LaundryJobStatus} />
           <View style={styles.detailsContainer}>
-            <Text style={styles.date}>{formatDate(data.createdAt)}</Text>
             <Text style={styles.total}>Total: ${totalValue}</Text>
           </View>
           <Status status={data.status as LaundryJobStatus} />
