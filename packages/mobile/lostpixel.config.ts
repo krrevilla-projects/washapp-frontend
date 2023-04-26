@@ -9,4 +9,6 @@ export const config: CustomProjectConfig = {
   imagePathDifference: './packages/mobile/difference-images',
   generateOnly: true,
   failOnDifference: true,
+  lostPixelProjectId: 'clgxok8wp0001g30ef4tbwz77',
+  apiKey: process.env.LOST_PIXEL_API_KEY,
 };
