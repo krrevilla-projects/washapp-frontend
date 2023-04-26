@@ -21,9 +21,6 @@ jobs:
 
       - name: Install dependencies
         run: yarn install
-        
-      - name: Change File Permissions
-        run: sudo chmod 777 .
 
       - name: Build Storybook components
         run: yarn build-storybook
@@ -34,6 +31,9 @@ jobs:
         env:
           LOST_PIXEL_MODE: update
           LOST_PIXEL_CONFIG_DIR: "packages/mobile"
+          
+      - name: Change File Permissions
+        run: sudo chmod 777 .
 
       - name: Create Pull request
         uses: peter-evans/create-pull-request@v5
