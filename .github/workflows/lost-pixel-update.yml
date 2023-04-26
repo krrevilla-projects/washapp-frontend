@@ -33,7 +33,8 @@ jobs:
           LOST_PIXEL_CONFIG_DIR: "packages/mobile"
           
       - name: Change File Permissions
-        run: sudo chmod 777 .
+        if: ${{ failure() && steps.lp.conclusion == 'failure' }}
+        run: sudo chown -R $USER:$USER .
 
       - name: Create Pull request
         uses: peter-evans/create-pull-request@v5
