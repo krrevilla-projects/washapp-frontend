@@ -35,7 +35,7 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         if: ${{ failure() && steps.lp.conclusion == 'failure' }}
         with:
-          token: ${{ secrets.ACTION_TOKEN }}
+          token: ${{ secrets.ACTIONS_TOKEN }}
           commit-message: Update Lost-Pixel baselines
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
