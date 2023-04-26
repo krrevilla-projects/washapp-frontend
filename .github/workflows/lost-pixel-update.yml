@@ -26,7 +26,7 @@ jobs:
         run: sudo chown -R $USER:$USER .
 
       - name: Build Storybook components
-        run: cd packages/mobile && yarn build-storybook
+        run: yarn build-storybook
 
       - name: Run Lost Pixel container
         id: lp
