@@ -23,7 +23,7 @@ jobs:
         run: yarn install
         
       - name: Change File Permissions
-        run: sudo chmod -R g+w
+        run: sudo chmod -R g+w .
 
       - name: Build Storybook components
         run: yarn build-storybook
